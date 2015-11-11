@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MyAirportService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMyAirportService_TestFaultException_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestFaultException" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_TestFaultException_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestFaultExceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_TestFaultException_PersoFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q1:PersoFaultException" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_MesParamatres_InputMessage">
+    <wsdl:part name="parameters" element="tns:MesParamatres" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_MesParamatres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MesParamatresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_UpdateMesParametres_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMesParametres" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_MonHistorique_InputMessage">
+    <wsdl:part name="parameters" element="tns:MonHistorique" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_MonHistorique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MonHistoriqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_CreateVol_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVol" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_CreateVol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsDeLaCompagnie_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDeLaCompagnie" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsDeLaCompagnie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDeLaCompagnieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsParDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsParDate" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsParDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsParDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsDuJour_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDuJour" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherVolsDuJour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherVolsDuJourResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_DetailVol2_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetailVol2" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_DetailVol2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetailVol2Response" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesDuVol_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuVol" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesDuVol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuVolResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesParDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParDate" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesParDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesDuJour_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuJour" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesDuJour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesDuJourResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_DetailBagage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetailBagage" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_DetailBagage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetailBagageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesParIata_InputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParIata" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesParIata_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RechercherBagagesParIataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_CreerBaggage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreerBaggage" />
+  </wsdl:message>
+  <wsdl:message name="IMyAirportService_CreerBaggage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreerBaggageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMyAirportService">
+    <wsdl:operation name="TestFaultException">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/TestFaultException" message="tns:IMyAirportService_TestFaultException_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/TestFaultExceptionResponse" message="tns:IMyAirportService_TestFaultException_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMyAirportService/TestFaultExceptionPersoFaultExceptionFault" name="PersoFaultExceptionFault" message="tns:IMyAirportService_TestFaultException_PersoFaultExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/MesParamatres" message="tns:IMyAirportService_MesParamatres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/MesParamatresResponse" message="tns:IMyAirportService_MesParamatres_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <wsdl:input wsaw:Action="TestAction" message="tns:IMyAirportService_UpdateMesParametres_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/MonHistorique" message="tns:IMyAirportService_MonHistorique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/MonHistoriqueResponse" message="tns:IMyAirportService_MonHistorique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/CreateVol" message="tns:IMyAirportService_CreateVol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/CreateVolResponse" message="tns:IMyAirportService_CreateVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnie" message="tns:IMyAirportService_RechercherVolsDeLaCompagnie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnieResponse" message="tns:IMyAirportService_RechercherVolsDeLaCompagnie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsParDate" message="tns:IMyAirportService_RechercherVolsParDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsParDateResponse" message="tns:IMyAirportService_RechercherVolsParDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsDuJour" message="tns:IMyAirportService_RechercherVolsDuJour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherVolsDuJourResponse" message="tns:IMyAirportService_RechercherVolsDuJour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/DetailVol2" message="tns:IMyAirportService_DetailVol2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/DetailVol2Response" message="tns:IMyAirportService_DetailVol2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuVol" message="tns:IMyAirportService_RechercherBagagesDuVol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuVolResponse" message="tns:IMyAirportService_RechercherBagagesDuVol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParDate" message="tns:IMyAirportService_RechercherBagagesParDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParDateResponse" message="tns:IMyAirportService_RechercherBagagesParDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuJour" message="tns:IMyAirportService_RechercherBagagesDuJour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuJourResponse" message="tns:IMyAirportService_RechercherBagagesDuJour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/DetailBagage" message="tns:IMyAirportService_DetailBagage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/DetailBagageResponse" message="tns:IMyAirportService_DetailBagage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIata">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIata" message="tns:IMyAirportService_RechercherBagagesParIata_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIataResponse" message="tns:IMyAirportService_RechercherBagagesParIata_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreerBaggage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggage" message="tns:IMyAirportService_CreerBaggage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggageResponse" message="tns:IMyAirportService_CreerBaggage_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMyAirportService" type="tns:IMyAirportService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestFaultException">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/TestFaultException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PersoFaultExceptionFault">
+        <soap:fault use="literal" name="PersoFaultExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="MesParamatres">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/MesParamatres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMesParametres">
+      <soap:operation soapAction="TestAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MonHistorique">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/MonHistorique" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVol">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/CreateVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDeLaCompagnie">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsParDate">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherVolsParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherVolsDuJour">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherVolsDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailVol2">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/DetailVol2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuVol">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuVol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParDate">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherBagagesParDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesDuJour">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuJour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailBagage">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/DetailBagage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechercherBagagesParIata">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/RechercherBagagesParIata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreerBaggage">
+      <soap:operation soapAction="http://tempuri.org/IMyAirportService/CreerBaggage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyAirportService">
+    <wsdl:port name="BasicHttpBinding_IMyAirportService" binding="tns:BasicHttpBinding_IMyAirportService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
