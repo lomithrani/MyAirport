@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBF0AFA0-7CE0-497E-BC53-6C9961C5C86C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyAirport.Data.ModelEntityFramework</RootNamespace>
+    <AssemblyName>MyAirport.Data.ModelEntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AEROPORT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASSOC_CS_CLA.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASSOC_EMP_CLA.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoMapperInit.cs" />
+    <Compile Include="BAGAGE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAGAGE_OCCURENCE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAGAGE_PARTICULARITE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAGAGE_TRACE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAGAGE_VOL_APPORT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAGAGE_VOL_CNT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPAGNIE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPAGNIE_CLASSE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRI_SELECTION.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EMPORT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GROUP_TRI.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelEntity.cs" />
+    <Compile Include="MODEL_CHRONOGRAMME.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODEL_CLASSEMENT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODEL_SATISFACTION.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyAirportEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyAirportEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyAirportEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MyAirportEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyAirportEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PARK_AVION.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RESSOURCE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RESSOURCE_GROUP.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TACHE_CODE_ALARME.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TACHE_ENTREE_TRI.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TACHE_GLOB.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TACHE_GRP_BAGS.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TACHE_SEC_ROUT.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL_ARRIVE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL_DEPART.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL_ENRGT_SUR.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL_ITINERAIRE.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VOL_TYP_AVION.cs">
+      <DependentUpon>MyAirportEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyAirport.Data.AbstractModel\MyAirport.Data.AbstractModel.csproj">
+      <Project>{8f4e0a61-3701-4ccd-a858-9858134592cf}</Project>
+      <Name>MyAirport.Data.AbstractModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyAirport.Entities\MyAirport.Entities.csproj">
+      <Project>{27c7a319-b99c-4f99-96ce-a4f4e7680890}</Project>
+      <Name>MyAirport.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="MyAirportEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyAirportEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MyAirportEntities.edmx.diagram">
+      <DependentUpon>MyAirportEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MyAirport.Entities.BagageDefinition.datasource" />
+    <None Include="Properties\DataSources\MyAirport.Entities.Historique.datasource" />
+    <None Include="Properties\DataSources\MyAirport.Entities.Parametres.datasource" />
+    <None Include="Properties\DataSources\MyAirport.Entities.VolDefinition.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyAirportEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyAirportEntities.edmx</DependentUpon>
+      <LastGenOutput>MyAirportEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyAirportEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyAirportEntities.edmx</DependentUpon>
+      <LastGenOutput>MyAirportEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

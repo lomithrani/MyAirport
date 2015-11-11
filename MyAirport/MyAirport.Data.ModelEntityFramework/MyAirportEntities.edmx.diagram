@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8f5ab28862244d8ca5a766043de08c46" Name="Diagram1">
+        <EntityTypeShape EntityType="MyAirportModel.AEROPORT" Width="1.5" PointX="2.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.ASSOC_CS_CLA" Width="1.5" PointX="13.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.ASSOC_EMP_CLA" Width="1.5" PointX="10.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE_OCCURENCE" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE_PARTICULARITE" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE_TRACE" Width="1.5" PointX="9.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE_VOL_APPORT" Width="1.5" PointX="7.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.BAGAGE_VOL_CNT" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.COMPAGNIE" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.COMPAGNIE_CLASSE" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.CRI_SELECTION" Width="1.5" PointX="11" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.EMPORT" Width="1.5" PointX="8" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.GROUP_TRI" Width="1.5" PointX="13.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.MODEL_CHRONOGRAMME" Width="1.5" PointX="5.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.MODEL_CLASSEMENT" Width="1.5" PointX="11" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.MODEL_SATISFACTION" Width="1.5" PointX="8.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.PARK_AVION" Width="1.5" PointX="15.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.RESSOURCE_GROUP" Width="1.5" PointX="15.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.sysdiagram" Width="1.5" PointX="15.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.TACHE_CODE_ALARME" Width="1.5" PointX="2.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.TACHE_ENTREE_TRI" Width="1.5" PointX="13.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.TACHE_GLOB" Width="1.5" PointX="11.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.TACHE_GRP_BAGS" Width="1.5" PointX="13.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.TACHE_SEC_ROUT" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL_ARRIVE" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL_DEPART" Width="1.5" PointX="10.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL_ENRGT_SUR" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL_ITINERAIRE" Width="1.5" PointX="5.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.VOL_TYP_AVION" Width="1.5" PointX="15.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyAirportModel.RESSOURCE" Width="1.5" PointX="15.75" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="MyAirportModel.FK_ASSOC_CS_CLA_CRI_SELECTION" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_ASSOC_CS_CLA_MOD_CLA" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_ASSOC_EMP_CLA_EMPORT_VOLS" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_ASSOC_EMP_CLA_MOD_CLA" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_BSM_VOL" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_BSM_VOL_APPORT" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_BSM_VOL_CNT" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_OCCURENCE_BAGAGE_BSM" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_TRACE_BAGAGE_OCCURENCE_BAGAGE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_CLASSE_CIE_CIE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_CEC" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_CIE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_CRI_SELECTION_MOD_CHR" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_CRI_SELECTION_MOD_SATISFACTION" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_EMPORT_VOLS_MOD_CHR" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_TAC_GRP_BAGS_EMPORT_VOLS" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_DEPART_EMPORT_VOLS" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_TAC_GRP_BAGS_MOD_SATISFACTION" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_GLOB_TACHE_FILLE_TACHE_MERE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_ITI" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_ARRIVE_VOL" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_DEPART_VOL" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR" ManuallyRouted="false" />
+        <AssociationConnector Association="MyAirportModel.BAGAGE_A_POUR_PARTICULARITE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

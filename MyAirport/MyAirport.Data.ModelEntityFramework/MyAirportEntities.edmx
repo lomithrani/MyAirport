@@ -1,0 +1,2407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyAirportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AEROPORT">
+          <Key>
+            <PropertyRef Name="ID_AEROPORT" />
+          </Key>
+          <Property Name="ID_AEROPORT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE_IATA" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="NOM" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="LONG_COURRIER" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSOC_CS_CLA">
+          <Key>
+            <PropertyRef Name="ID_MOD_CLA" />
+            <PropertyRef Name="ID_CRI_SELECTION" />
+            <PropertyRef Name="ORDRE_TEMPOREL" />
+          </Key>
+          <Property Name="ID_MOD_CLA" Type="int" Nullable="false" />
+          <Property Name="ID_CRI_SELECTION" Type="int" Nullable="false" />
+          <Property Name="ORDRE_TEMPOREL" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSOC_EMP_CLA">
+          <Key>
+            <PropertyRef Name="ID_EMPORT" />
+            <PropertyRef Name="ID_MOD_CLA" />
+            <PropertyRef Name="ORDRE_TEMPOREL" />
+          </Key>
+          <Property Name="ID_EMPORT" Type="int" Nullable="false" />
+          <Property Name="ID_MOD_CLA" Type="int" Nullable="false" />
+          <Property Name="ORDRE_TEMPOREL" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BAGAGE">
+          <Key>
+            <PropertyRef Name="ID_BAGAGE" />
+          </Key>
+          <Property Name="ID_BAGAGE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_VOL" Type="int" />
+          <Property Name="CODE_IATA" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="ORIGINE_CREATION" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="datetime" Nullable="false" />
+          <Property Name="CLASSE" Type="char" MaxLength="1" />
+          <Property Name="PRIORITAIRE" Type="bit" />
+          <Property Name="STA" Type="char" MaxLength="1" />
+          <Property Name="LOCAL_TRANFERT" Type="char" MaxLength="1" />
+          <Property Name="NSUR" Type="char" MaxLength="3" />
+          <Property Name="SSUR" Type="char" MaxLength="3" />
+          <Property Name="ISUR" Type="bit" />
+          <Property Name="TSUR" Type="varchar" MaxLength="4" />
+          <Property Name="GSUR" Type="char" MaxLength="8" />
+          <Property Name="CSUR" Type="varchar" MaxLength="128" />
+          <Property Name="DESTINATION" Type="varchar" MaxLength="3" />
+          <Property Name="ESCALE" Type="char" MaxLength="3" />
+          <Property Name="EMB" Type="bit" />
+          <Property Name="RECOLE" Type="bit" />
+          <Property Name="COMPAGNIE" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="LIGNE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="smallint" Nullable="false" />
+          <Property Name="CONTINUATION" Type="char" MaxLength="1" />
+          <Property Name="STATUT_EJECTION" Type="char" MaxLength="1" />
+          <Property Name="STATUT_TEMPOREL" Type="int" />
+          <Property Name="DCS_EMETTEUR" Type="varchar" MaxLength="4" />
+          <Property Name="ORIGINE_SAFIR" Type="bit" Nullable="false" />
+          <Property Name="EN_CONTINUATION" Type="bit" Nullable="false" />
+          <Property Name="EN_TRANSFERT" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BAGAGE_A_POUR_PARTICULARITE">
+          <Key>
+            <PropertyRef Name="ID_BAGAGE" />
+            <PropertyRef Name="ID_PARTICULARITE" />
+          </Key>
+          <Property Name="ID_BAGAGE" Type="int" Nullable="false" />
+          <Property Name="ID_PARTICULARITE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BAGAGE_OCCURENCE">
+          <Key>
+            <PropertyRef Name="ID_OCCURENCE" />
+          </Key>
+          <Property Name="ID_OCCURENCE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_BAGAGE" Type="int" />
+          <Property Name="CODE_IATA" Type="varchar" MaxLength="40" />
+          <Property Name="HORODATE_ENTREE_TRI" Type="datetime" />
+          <Property Name="DESTINATION1" Type="int" />
+          <Property Name="DESTINATION4" Type="int" />
+          <Property Name="STATUT_EJEC" Type="char" MaxLength="1" />
+          <Property Name="INDIC_SECTOR" Type="char" MaxLength="1" />
+          <Property Name="NUMERO_OCCURENCE" Type="int" Nullable="false" />
+          <Property Name="COMPAGNIE" Type="varchar" MaxLength="3" />
+          <Property Name="LIGNE" Type="varchar" MaxLength="5" />
+          <Property Name="JOUR_EXPLOITATION" Type="char" MaxLength="2" />
+          <Property Name="ENCOURS" Type="char" MaxLength="30" />
+          <Property Name="DIRECTIONENCOURS" Type="int" />
+          <Property Name="STATUT_SURETE_EJECTION" Type="int" />
+          <Property Name="TYPE_TACHE" Type="varchar" MaxLength="14" />
+          <Property Name="ID_TACHE" Type="int" />
+          <Property Name="DERNIERE_LOC_CONNUE" Type="int" />
+        </EntityType>
+        <EntityType Name="BAGAGE_PARTICULARITE">
+          <Key>
+            <PropertyRef Name="ID_PART" />
+          </Key>
+          <Property Name="ID_PART" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PARTICULARITE" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BAGAGE_TRACE">
+          <Key>
+            <PropertyRef Name="ID_TRACE" />
+          </Key>
+          <Property Name="ID_TRACE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_OCCURENCE" Type="int" Nullable="false" />
+          <Property Name="HOROADATE" Type="datetime" Nullable="false" />
+          <Property Name="ID_LOCALISATION" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+          <Property Name="STATUT" Type="int" />
+          <Property Name="INFO" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="BAGAGE_VOL_APPORT">
+          <Key>
+            <PropertyRef Name="COMPAGNIE" />
+            <PropertyRef Name="ID_BAGAGE" />
+            <PropertyRef Name="JOUR_EXPLOITATION" />
+            <PropertyRef Name="LIGNE" />
+          </Key>
+          <Property Name="COMPAGNIE" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="ID_BAGAGE" Type="int" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="smallint" Nullable="false" />
+          <Property Name="LIGNE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="AEROPORT" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BAGAGE_VOL_CNT">
+          <Key>
+            <PropertyRef Name="ID_BAGAGE" />
+            <PropertyRef Name="COMPAGNIE" />
+            <PropertyRef Name="LIGNE" />
+            <PropertyRef Name="JOUR_EXPLOITATION" />
+          </Key>
+          <Property Name="ID_BAGAGE" Type="int" Nullable="false" />
+          <Property Name="COMPAGNIE" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="LIGNE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="smallint" Nullable="false" />
+          <Property Name="AEROPORT" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COMPAGNIE">
+          <Key>
+            <PropertyRef Name="ID_COMPAGNIE" />
+          </Key>
+          <Property Name="ID_COMPAGNIE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE_IATA" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="NUMERO_ASSISTANT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="CODE_OACI" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="NOM" Type="varchar" MaxLength="128" />
+          <Property Name="OBSERVATION" Type="varchar" MaxLength="255" />
+          <Property Name="DATE_OBSOLETE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="COMPAGNIE_CLASSE">
+          <Key>
+            <PropertyRef Name="ID_COMPAGNIE_CLASSE" />
+          </Key>
+          <Property Name="ID_COMPAGNIE_CLASSE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_COMPAGNIE" Type="int" Nullable="false" />
+          <Property Name="CLASSE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRIORITAIRE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CRI_SELECTION">
+          <Key>
+            <PropertyRef Name="ID_CRI_SELECTION" />
+          </Key>
+          <Property Name="ID_CRI_SELECTION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_MOD_CHR" Type="int" />
+          <Property Name="ID_MOD_SATISFACT" Type="int" />
+          <Property Name="TYPE_MODELE" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="EXPRESSION" Type="varchar" MaxLength="1024" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPORT">
+          <Key>
+            <PropertyRef Name="ID_EMPORT" />
+          </Key>
+          <Property Name="ID_EMPORT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CHRONOGRAMME" Type="int" />
+          <Property Name="NB_BAG_CALCULE" Type="smallint" />
+          <Property Name="D_ANT" Type="datetime" />
+          <Property Name="D_TPS" Type="datetime" />
+          <Property Name="D_DER" Type="datetime" />
+          <Property Name="D_RAT" Type="datetime" />
+          <Property Name="F_RAT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GROUP_TRI">
+          <Key>
+            <PropertyRef Name="ID_GROUP_TRI" />
+          </Key>
+          <Property Name="ID_GROUP_TRI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LIBELLE" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_CHRONOGRAMME">
+          <Key>
+            <PropertyRef Name="ID_CHRONOGRAMME" />
+          </Key>
+          <Property Name="ID_CHRONOGRAMME" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIBELLE" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="HDEPREF" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="DANT" Type="smallint" Nullable="false" />
+          <Property Name="DOUVTRI" Type="smallint" Nullable="false" />
+          <Property Name="DFTRI" Type="smallint" Nullable="false" />
+          <Property Name="DFDM" Type="smallint" Nullable="false" />
+          <Property Name="DRATES" Type="smallint" Nullable="false" />
+          <Property Name="OBSOLETE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_CLASSEMENT">
+          <Key>
+            <PropertyRef Name="ID_CLASSEMENT" />
+          </Key>
+          <Property Name="ID_CLASSEMENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIBELLE" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="EXPRESSION" Type="varchar" MaxLength="1024" Nullable="false" />
+          <Property Name="OBSOLETE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_SATISFACTION">
+          <Key>
+            <PropertyRef Name="ID_SATISFACTION" />
+          </Key>
+          <Property Name="ID_SATISFACTION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LIBELLE" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="OBSOLETE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARK_AVION">
+          <Key>
+            <PropertyRef Name="ID_PARKING" />
+          </Key>
+          <Property Name="ID_PARKING" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE_PARKING" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ID_SARIA_PARKING" Type="char" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MyAirport.dbo.RESSOURCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RESSOURCE">
+          <Key>
+            <PropertyRef Name="ID_RESSOURCE" />
+            <PropertyRef Name="ID_GROUP_TRI" />
+            <PropertyRef Name="ID_RESSOURCE_GROUP" />
+            <PropertyRef Name="ID_LOCALISATION" />
+          </Key>
+          <Property Name="ID_RESSOURCE" Type="int" Nullable="false" />
+          <Property Name="ID_GROUP_TRI" Type="int" Nullable="false" />
+          <Property Name="ID_RESSOURCE_GROUP" Type="int" Nullable="false" />
+          <Property Name="ID_LOCALISATION" Type="int" Nullable="false" />
+          <Property Name="NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="RESSOURCE_GROUP">
+          <Key>
+            <PropertyRef Name="ID_GROUP" />
+          </Key>
+          <Property Name="ID_GROUP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOM_GROUP" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="OBSERVATION" Type="varchar" MaxLength="255" />
+          <Property Name="ID_TYPE_RESSOURCE" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TACHE_CODE_ALARME">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="int" Nullable="false" />
+          <Property Name="MESSAGE" Type="varchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TACHE_ENTREE_TRI">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_RES" Type="int" Nullable="false" />
+          <Property Name="ID_RES_IN" Type="int" />
+          <Property Name="TDEB" Type="datetime" Nullable="false" />
+          <Property Name="TFIN" Type="datetime" Nullable="false" />
+          <Property Name="NIV_ALA" Type="varchar" MaxLength="20" />
+          <Property Name="COD_ALA" Type="smallint" />
+          <Property Name="CAR_CLASS" Type="varchar" MaxLength="128" />
+          <Property Name="ID_TACHE_MERE" Type="int" />
+          <Property Name="NB_BAGS_EN_COURS" Type="int" />
+        </EntityType>
+        <EntityType Name="TACHE_GLOB">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_RES" Type="int" />
+          <Property Name="TYP_TAC_GLOB" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TDEB" Type="datetime" Nullable="false" />
+          <Property Name="TFIN" Type="datetime" Nullable="false" />
+          <Property Name="NIV_ALA" Type="varchar" MaxLength="20" />
+          <Property Name="COD_ALA" Type="smallint" />
+          <Property Name="CAR_CLASS" Type="varchar" MaxLength="128" />
+          <Property Name="ID_TACHE_MERE" Type="int" />
+          <Property Name="NB_BAGS_EN_COURS" Type="int" />
+        </EntityType>
+        <EntityType Name="TACHE_GRP_BAGS">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_EMPORT" Type="int" Nullable="false" />
+          <Property Name="ID_MOD_SATISFACT" Type="int" />
+          <Property Name="ID_RES" Type="int" />
+          <Property Name="STATUT_TEMPOREL" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TDEB" Type="datetime" Nullable="false" />
+          <Property Name="TFIN" Type="datetime" Nullable="false" />
+          <Property Name="NIV_ALA" Type="varchar" MaxLength="20" />
+          <Property Name="COD_ALA" Type="smallint" />
+          <Property Name="CAR_CLASS" Type="varchar" MaxLength="128" />
+          <Property Name="ID_TACHE_MERE" Type="int" />
+          <Property Name="NB_BAGS_EN_COURS" Type="int" />
+          <Property Name="NB_CONTAINERS" Type="int" />
+        </EntityType>
+        <EntityType Name="TACHE_SEC_ROUT">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_RES" Type="int" />
+          <Property Name="TYP_SECOURS" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="TRI_SECOURS" Type="varchar" MaxLength="1" />
+          <Property Name="TDEB" Type="datetime" Nullable="false" />
+          <Property Name="TFIN" Type="datetime" Nullable="false" />
+          <Property Name="NIV_ALA" Type="varchar" MaxLength="20" />
+          <Property Name="COD_ALA" Type="smallint" />
+          <Property Name="CAR_CLASS" Type="varchar" MaxLength="128" />
+          <Property Name="ID_TACHE_MERE" Type="int" />
+          <Property Name="NB_BAGS_EN_COURS" Type="int" />
+        </EntityType>
+        <EntityType Name="VOL">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CIE" Type="int" Nullable="false" />
+          <Property Name="ID_CEC" Type="int" />
+          <Property Name="LIG" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="JEX" Type="smallint" Nullable="false" />
+          <Property Name="QRF" Type="smallint" Nullable="false" />
+          <Property Name="DHC" Type="datetime" />
+          <Property Name="SPK" Type="char" MaxLength="1" />
+          <Property Name="STA" Type="varchar" MaxLength="4" />
+          <Property Name="DOA" Type="char" MaxLength="1" />
+          <Property Name="PKG" Type="char" MaxLength="3" />
+          <Property Name="TDH" Type="char" MaxLength="1" />
+          <Property Name="NAT" Type="char" MaxLength="1" />
+          <Property Name="REP" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VOL_ARRIVE">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="int" Nullable="false" />
+          <Property Name="AER_ORIGINE" Type="char" MaxLength="3" />
+          <Property Name="CTRL_SUR_OK" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VOL_DEPART">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="int" Nullable="false" />
+          <Property Name="ID_EMPORT" Type="int" />
+          <Property Name="SHA" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CRE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TYP" Type="char" MaxLength="3" />
+          <Property Name="JUR" Type="smallint" />
+          <Property Name="SCT" Type="datetime" />
+          <Property Name="AVC" Type="datetime" />
+          <Property Name="IMM" Type="char" MaxLength="6" />
+          <Property Name="PAX" Type="smallint" />
+          <Property Name="MAS" Type="varchar" MaxLength="128" />
+          <Property Name="DES" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="VOL_ENRGT_SUR">
+          <Key>
+            <PropertyRef Name="ID_RES" />
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_RES" Type="int" Nullable="false" />
+          <Property Name="ID_VOL" Type="int" Nullable="false" />
+          <Property Name="DEBUT" Type="datetime" />
+          <Property Name="FIN" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VOL_ITINERAIRE">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+            <PropertyRef Name="CODE_VILLE" />
+            <PropertyRef Name="ORDRE_ESCALE" />
+          </Key>
+          <Property Name="ID_VOL" Type="int" Nullable="false" />
+          <Property Name="CODE_VILLE" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ORDRE_ESCALE" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VOL_TYP_AVION">
+          <Key>
+            <PropertyRef Name="ID_TYP_AVION" />
+          </Key>
+          <Property Name="ID_TYP_AVION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYP" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="LIB" Type="varchar" MaxLength="128" />
+          <Property Name="PAX_STD" Type="int" />
+          <Property Name="PAX_MAX" Type="smallint" />
+          <Property Name="OBS" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_A_POUR_PART_BSM">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_A_POUR_PARTICULARITE" Type="Self.BAGAGE_A_POUR_PARTICULARITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_A_POUR_PARTICULARITE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_A_POUR_PART_PART_BSM">
+          <End Role="BAGAGE_PARTICULARITE" Type="Self.BAGAGE_PARTICULARITE" Multiplicity="1" />
+          <End Role="BAGAGE_A_POUR_PARTICULARITE" Type="Self.BAGAGE_A_POUR_PARTICULARITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE_PARTICULARITE">
+              <PropertyRef Name="ID_PART" />
+            </Principal>
+            <Dependent Role="BAGAGE_A_POUR_PARTICULARITE">
+              <PropertyRef Name="ID_PARTICULARITE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_CS_CLA_CRI_SELECTION">
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="1" />
+          <End Role="ASSOC_CS_CLA" Type="Self.ASSOC_CS_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRI_SELECTION">
+              <PropertyRef Name="ID_CRI_SELECTION" />
+            </Principal>
+            <Dependent Role="ASSOC_CS_CLA">
+              <PropertyRef Name="ID_CRI_SELECTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_CS_CLA_MOD_CLA">
+          <End Role="MODEL_CLASSEMENT" Type="Self.MODEL_CLASSEMENT" Multiplicity="1" />
+          <End Role="ASSOC_CS_CLA" Type="Self.ASSOC_CS_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CLASSEMENT">
+              <PropertyRef Name="ID_CLASSEMENT" />
+            </Principal>
+            <Dependent Role="ASSOC_CS_CLA">
+              <PropertyRef Name="ID_MOD_CLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_EMP_CLA_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ASSOC_EMP_CLA" Type="Self.ASSOC_EMP_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="ASSOC_EMP_CLA">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_EMP_CLA_MOD_CLA">
+          <End Role="MODEL_CLASSEMENT" Type="Self.MODEL_CLASSEMENT" Multiplicity="1" />
+          <End Role="ASSOC_EMP_CLA" Type="Self.ASSOC_EMP_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CLASSEMENT">
+              <PropertyRef Name="ID_CLASSEMENT" />
+            </Principal>
+            <Dependent Role="ASSOC_EMP_CLA">
+              <PropertyRef Name="ID_MOD_CLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="BAGAGE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL_APPORT">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_VOL_APPORT" Type="Self.BAGAGE_VOL_APPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_VOL_APPORT">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL_CNT">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_VOL_CNT" Type="Self.BAGAGE_VOL_CNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_VOL_CNT">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLASSE_CIE_CIE">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="1" />
+          <End Role="COMPAGNIE_CLASSE" Type="Self.COMPAGNIE_CLASSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="COMPAGNIE_CLASSE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRI_SELECTION_MOD_CHR">
+          <End Role="MODEL_CHRONOGRAMME" Type="Self.MODEL_CHRONOGRAMME" Multiplicity="0..1" />
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CHRONOGRAMME">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Principal>
+            <Dependent Role="CRI_SELECTION">
+              <PropertyRef Name="ID_MOD_CHR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRI_SELECTION_MOD_SATISFACTION">
+          <End Role="MODEL_SATISFACTION" Type="Self.MODEL_SATISFACTION" Multiplicity="0..1" />
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_SATISFACTION">
+              <PropertyRef Name="ID_SATISFACTION" />
+            </Principal>
+            <Dependent Role="CRI_SELECTION">
+              <PropertyRef Name="ID_MOD_SATISFACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPORT_VOLS_MOD_CHR">
+          <End Role="MODEL_CHRONOGRAMME" Type="Self.MODEL_CHRONOGRAMME" Multiplicity="0..1" />
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CHRONOGRAMME">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Principal>
+            <Dependent Role="EMPORT">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_ENTREE_TRI" Type="Self.TACHE_ENTREE_TRI" Multiplicity="0..1" />
+          <End Role="TACHE_ENTREE_TRI1" Type="Self.TACHE_ENTREE_TRI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_ENTREE_TRI">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_ENTREE_TRI1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GLOB_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_GLOB" Type="Self.TACHE_GLOB" Multiplicity="0..1" />
+          <End Role="TACHE_GLOB1" Type="Self.TACHE_GLOB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_GLOB">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_GLOB1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="0..1" />
+          <End Role="TACHE_GRP_BAGS1" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITI">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_ITINERAIRE" Type="Self.VOL_ITINERAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ITINERAIRE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OCCURENCE_BAGAGE_BSM">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_OCCURENCE" Type="Self.BAGAGE_OCCURENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_OCCURENCE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_SEC_ROUT" Type="Self.TACHE_SEC_ROUT" Multiplicity="0..1" />
+          <End Role="TACHE_SEC_ROUT1" Type="Self.TACHE_SEC_ROUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_SEC_ROUT">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_SEC_ROUT1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAC_GRP_BAGS_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAC_GRP_BAGS_MOD_SATISFACTION">
+          <End Role="MODEL_SATISFACTION" Type="Self.MODEL_SATISFACTION" Multiplicity="0..1" />
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_SATISFACTION">
+              <PropertyRef Name="ID_SATISFACTION" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_MOD_SATISFACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRACE_BAGAGE_OCCURENCE_BAGAGE">
+          <End Role="BAGAGE_OCCURENCE" Type="Self.BAGAGE_OCCURENCE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_TRACE" Type="Self.BAGAGE_TRACE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE_OCCURENCE">
+              <PropertyRef Name="ID_OCCURENCE" />
+            </Principal>
+            <Dependent Role="BAGAGE_TRACE">
+              <PropertyRef Name="ID_OCCURENCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_ARRIVE_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_ARRIVE" Type="Self.VOL_ARRIVE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ARRIVE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_CEC">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="0..1" />
+          <End Role="VOL" Type="Self.VOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="VOL">
+              <PropertyRef Name="ID_CEC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_CIE">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="1" />
+          <End Role="VOL" Type="Self.VOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="VOL">
+              <PropertyRef Name="ID_CIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_DEPART_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_DEPART" Type="Self.VOL_DEPART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="VOL_DEPART">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_DEPART_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_DEPART" Type="Self.VOL_DEPART" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_DEPART">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR">
+          <End Role="VOL_ENRGT_SUR" Type="Self.VOL_ENRGT_SUR" Multiplicity="1" />
+          <End Role="VOL_ENRGT_SUR1" Type="Self.VOL_ENRGT_SUR" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL_ENRGT_SUR">
+              <PropertyRef Name="ID_RES" />
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ENRGT_SUR1">
+              <PropertyRef Name="ID_RES" />
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetIti" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="IdEmport" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MyAirportModelStoreContainer">
+          <EntitySet Name="AEROPORT" EntityType="Self.AEROPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSOC_CS_CLA" EntityType="Self.ASSOC_CS_CLA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSOC_EMP_CLA" EntityType="Self.ASSOC_EMP_CLA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE" EntityType="Self.BAGAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_A_POUR_PARTICULARITE" EntityType="Self.BAGAGE_A_POUR_PARTICULARITE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_OCCURENCE" EntityType="Self.BAGAGE_OCCURENCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_PARTICULARITE" EntityType="Self.BAGAGE_PARTICULARITE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_TRACE" EntityType="Self.BAGAGE_TRACE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_VOL_APPORT" EntityType="Self.BAGAGE_VOL_APPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BAGAGE_VOL_CNT" EntityType="Self.BAGAGE_VOL_CNT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPAGNIE" EntityType="Self.COMPAGNIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPAGNIE_CLASSE" EntityType="Self.COMPAGNIE_CLASSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRI_SELECTION" EntityType="Self.CRI_SELECTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPORT" EntityType="Self.EMPORT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GROUP_TRI" EntityType="Self.GROUP_TRI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODEL_CHRONOGRAMME" EntityType="Self.MODEL_CHRONOGRAMME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODEL_CLASSEMENT" EntityType="Self.MODEL_CLASSEMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODEL_SATISFACTION" EntityType="Self.MODEL_SATISFACTION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARK_AVION" EntityType="Self.PARK_AVION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESSOURCE_GROUP" EntityType="Self.RESSOURCE_GROUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TACHE_CODE_ALARME" EntityType="Self.TACHE_CODE_ALARME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TACHE_ENTREE_TRI" EntityType="Self.TACHE_ENTREE_TRI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TACHE_GLOB" EntityType="Self.TACHE_GLOB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TACHE_GRP_BAGS" EntityType="Self.TACHE_GRP_BAGS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TACHE_SEC_ROUT" EntityType="Self.TACHE_SEC_ROUT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL" EntityType="Self.VOL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL_ARRIVE" EntityType="Self.VOL_ARRIVE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL_DEPART" EntityType="Self.VOL_DEPART" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL_ENRGT_SUR" EntityType="Self.VOL_ENRGT_SUR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL_ITINERAIRE" EntityType="Self.VOL_ITINERAIRE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOL_TYP_AVION" EntityType="Self.VOL_TYP_AVION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RESSOURCE" EntityType="Self.RESSOURCE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RESSOURCE].[ID_RESSOURCE] AS [ID_RESSOURCE], 
+    [RESSOURCE].[ID_GROUP_TRI] AS [ID_GROUP_TRI], 
+    [RESSOURCE].[ID_RESSOURCE_GROUP] AS [ID_RESSOURCE_GROUP], 
+    [RESSOURCE].[ID_LOCALISATION] AS [ID_LOCALISATION], 
+    [RESSOURCE].[NOM] AS [NOM], 
+    [RESSOURCE].[CODE] AS [CODE]
+    FROM [dbo].[RESSOURCE] AS [RESSOURCE]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_A_POUR_PART_BSM" Association="Self.FK_A_POUR_PART_BSM">
+            <End Role="BAGAGE" EntitySet="BAGAGE" />
+            <End Role="BAGAGE_A_POUR_PARTICULARITE" EntitySet="BAGAGE_A_POUR_PARTICULARITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_A_POUR_PART_PART_BSM" Association="Self.FK_A_POUR_PART_PART_BSM">
+            <End Role="BAGAGE_PARTICULARITE" EntitySet="BAGAGE_PARTICULARITE" />
+            <End Role="BAGAGE_A_POUR_PARTICULARITE" EntitySet="BAGAGE_A_POUR_PARTICULARITE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_CS_CLA_CRI_SELECTION" Association="Self.FK_ASSOC_CS_CLA_CRI_SELECTION">
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+            <End Role="ASSOC_CS_CLA" EntitySet="ASSOC_CS_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_CS_CLA_MOD_CLA" Association="Self.FK_ASSOC_CS_CLA_MOD_CLA">
+            <End Role="MODEL_CLASSEMENT" EntitySet="MODEL_CLASSEMENT" />
+            <End Role="ASSOC_CS_CLA" EntitySet="ASSOC_CS_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_EMP_CLA_EMPORT_VOLS" Association="Self.FK_ASSOC_EMP_CLA_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORT" />
+            <End Role="ASSOC_EMP_CLA" EntitySet="ASSOC_EMP_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_EMP_CLA_MOD_CLA" Association="Self.FK_ASSOC_EMP_CLA_MOD_CLA">
+            <End Role="MODEL_CLASSEMENT" EntitySet="MODEL_CLASSEMENT" />
+            <End Role="ASSOC_EMP_CLA" EntitySet="ASSOC_EMP_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL" Association="Self.FK_BSM_VOL">
+            <End Role="VOL" EntitySet="VOL" />
+            <End Role="BAGAGE" EntitySet="BAGAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL_APPORT" Association="Self.FK_BSM_VOL_APPORT">
+            <End Role="BAGAGE" EntitySet="BAGAGE" />
+            <End Role="BAGAGE_VOL_APPORT" EntitySet="BAGAGE_VOL_APPORT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL_CNT" Association="Self.FK_BSM_VOL_CNT">
+            <End Role="BAGAGE" EntitySet="BAGAGE" />
+            <End Role="BAGAGE_VOL_CNT" EntitySet="BAGAGE_VOL_CNT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLASSE_CIE_CIE" Association="Self.FK_CLASSE_CIE_CIE">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIE" />
+            <End Role="COMPAGNIE_CLASSE" EntitySet="COMPAGNIE_CLASSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRI_SELECTION_MOD_CHR" Association="Self.FK_CRI_SELECTION_MOD_CHR">
+            <End Role="MODEL_CHRONOGRAMME" EntitySet="MODEL_CHRONOGRAMME" />
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRI_SELECTION_MOD_SATISFACTION" Association="Self.FK_CRI_SELECTION_MOD_SATISFACTION">
+            <End Role="MODEL_SATISFACTION" EntitySet="MODEL_SATISFACTION" />
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPORT_VOLS_MOD_CHR" Association="Self.FK_EMPORT_VOLS_MOD_CHR">
+            <End Role="MODEL_CHRONOGRAMME" EntitySet="MODEL_CHRONOGRAMME" />
+            <End Role="EMPORT" EntitySet="EMPORT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE" Association="Self.FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_ENTREE_TRI" EntitySet="TACHE_ENTREE_TRI" />
+            <End Role="TACHE_ENTREE_TRI1" EntitySet="TACHE_ENTREE_TRI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GLOB_TACHE_FILLE_TACHE_MERE" Association="Self.FK_GLOB_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_GLOB" EntitySet="TACHE_GLOB" />
+            <End Role="TACHE_GLOB1" EntitySet="TACHE_GLOB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE" Association="Self.FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+            <End Role="TACHE_GRP_BAGS1" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITI" Association="Self.FK_ITI">
+            <End Role="VOL" EntitySet="VOL" />
+            <End Role="VOL_ITINERAIRE" EntitySet="VOL_ITINERAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OCCURENCE_BAGAGE_BSM" Association="Self.FK_OCCURENCE_BAGAGE_BSM">
+            <End Role="BAGAGE" EntitySet="BAGAGE" />
+            <End Role="BAGAGE_OCCURENCE" EntitySet="BAGAGE_OCCURENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE" Association="Self.FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_SEC_ROUT" EntitySet="TACHE_SEC_ROUT" />
+            <End Role="TACHE_SEC_ROUT1" EntitySet="TACHE_SEC_ROUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAC_GRP_BAGS_EMPORT_VOLS" Association="Self.FK_TAC_GRP_BAGS_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORT" />
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAC_GRP_BAGS_MOD_SATISFACTION" Association="Self.FK_TAC_GRP_BAGS_MOD_SATISFACTION">
+            <End Role="MODEL_SATISFACTION" EntitySet="MODEL_SATISFACTION" />
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRACE_BAGAGE_OCCURENCE_BAGAGE" Association="Self.FK_TRACE_BAGAGE_OCCURENCE_BAGAGE">
+            <End Role="BAGAGE_OCCURENCE" EntitySet="BAGAGE_OCCURENCE" />
+            <End Role="BAGAGE_TRACE" EntitySet="BAGAGE_TRACE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_ARRIVE_VOL" Association="Self.FK_VOL_ARRIVE_VOL">
+            <End Role="VOL" EntitySet="VOL" />
+            <End Role="VOL_ARRIVE" EntitySet="VOL_ARRIVE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_CEC" Association="Self.FK_VOL_CEC">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIE" />
+            <End Role="VOL" EntitySet="VOL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_CIE" Association="Self.FK_VOL_CIE">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIE" />
+            <End Role="VOL" EntitySet="VOL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_DEPART_EMPORT_VOLS" Association="Self.FK_VOL_DEPART_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORT" />
+            <End Role="VOL_DEPART" EntitySet="VOL_DEPART" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_DEPART_VOL" Association="Self.FK_VOL_DEPART_VOL">
+            <End Role="VOL" EntitySet="VOL" />
+            <End Role="VOL_DEPART" EntitySet="VOL_DEPART" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR" Association="Self.FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR">
+            <End Role="VOL_ENRGT_SUR" EntitySet="VOL_ENRGT_SUR" />
+            <End Role="VOL_ENRGT_SUR1" EntitySet="VOL_ENRGT_SUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyAirportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AEROPORT">
+          <Key>
+            <PropertyRef Name="ID_AEROPORT" />
+          </Key>
+          <Property Name="ID_AEROPORT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE_IATA" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LONG_COURRIER" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSOC_CS_CLA">
+          <Key>
+            <PropertyRef Name="ID_MOD_CLA" />
+            <PropertyRef Name="ID_CRI_SELECTION" />
+            <PropertyRef Name="ORDRE_TEMPOREL" />
+          </Key>
+          <Property Name="ID_MOD_CLA" Type="Int32" Nullable="false" />
+          <Property Name="ID_CRI_SELECTION" Type="Int32" Nullable="false" />
+          <Property Name="ORDRE_TEMPOREL" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="CRI_SELECTION" Relationship="Self.FK_ASSOC_CS_CLA_CRI_SELECTION" FromRole="ASSOC_CS_CLA" ToRole="CRI_SELECTION" />
+          <NavigationProperty Name="MODEL_CLASSEMENT" Relationship="Self.FK_ASSOC_CS_CLA_MOD_CLA" FromRole="ASSOC_CS_CLA" ToRole="MODEL_CLASSEMENT" />
+        </EntityType>
+        <EntityType Name="ASSOC_EMP_CLA">
+          <Key>
+            <PropertyRef Name="ID_EMPORT" />
+            <PropertyRef Name="ID_MOD_CLA" />
+            <PropertyRef Name="ORDRE_TEMPOREL" />
+          </Key>
+          <Property Name="ID_EMPORT" Type="Int32" Nullable="false" />
+          <Property Name="ID_MOD_CLA" Type="Int32" Nullable="false" />
+          <Property Name="ORDRE_TEMPOREL" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="EMPORT" Relationship="Self.FK_ASSOC_EMP_CLA_EMPORT_VOLS" FromRole="ASSOC_EMP_CLA" ToRole="EMPORT" />
+          <NavigationProperty Name="MODEL_CLASSEMENT" Relationship="Self.FK_ASSOC_EMP_CLA_MOD_CLA" FromRole="ASSOC_EMP_CLA" ToRole="MODEL_CLASSEMENT" />
+        </EntityType>
+        <EntityType Name="BAGAGE">
+          <Key>
+            <PropertyRef Name="ID_BAGAGE" />
+          </Key>
+          <Property Name="ID_BAGAGE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VOL" Type="Int32" />
+          <Property Name="CODE_IATA" Type="String" MaxLength="12" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ORIGINE_CREATION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DATE_CREATION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CLASSE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PRIORITAIRE" Type="Boolean" />
+          <Property Name="STA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LOCAL_TRANFERT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NSUR" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="SSUR" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ISUR" Type="Boolean" />
+          <Property Name="TSUR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="GSUR" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="CSUR" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DESTINATION" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ESCALE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="EMB" Type="Boolean" />
+          <Property Name="RECOLE" Type="Boolean" />
+          <Property Name="COMPAGNIE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIGNE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="Int16" Nullable="false" />
+          <Property Name="CONTINUATION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="STATUT_EJECTION" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="STATUT_TEMPOREL" Type="Int32" />
+          <Property Name="DCS_EMETTEUR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ORIGINE_SAFIR" Type="Boolean" Nullable="false" />
+          <Property Name="EN_CONTINUATION" Type="Boolean" Nullable="false" />
+          <Property Name="EN_TRANSFERT" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="VOL" Relationship="Self.FK_BSM_VOL" FromRole="BAGAGE" ToRole="VOL" />
+          <NavigationProperty Name="BAGAGE_VOL_APPORT" Relationship="Self.FK_BSM_VOL_APPORT" FromRole="BAGAGE" ToRole="BAGAGE_VOL_APPORT" />
+          <NavigationProperty Name="BAGAGE_VOL_CNT" Relationship="Self.FK_BSM_VOL_CNT" FromRole="BAGAGE" ToRole="BAGAGE_VOL_CNT" />
+          <NavigationProperty Name="BAGAGE_OCCURENCE" Relationship="Self.FK_OCCURENCE_BAGAGE_BSM" FromRole="BAGAGE" ToRole="BAGAGE_OCCURENCE" />
+          <NavigationProperty Name="BAGAGE_PARTICULARITE" Relationship="Self.BAGAGE_A_POUR_PARTICULARITE" FromRole="BAGAGE" ToRole="BAGAGE_PARTICULARITE" />
+        </EntityType>
+        <EntityType Name="BAGAGE_OCCURENCE">
+          <Key>
+            <PropertyRef Name="ID_OCCURENCE" />
+          </Key>
+          <Property Name="ID_OCCURENCE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_BAGAGE" Type="Int32" />
+          <Property Name="CODE_IATA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="HORODATE_ENTREE_TRI" Type="DateTime" Precision="3" />
+          <Property Name="DESTINATION1" Type="Int32" />
+          <Property Name="DESTINATION4" Type="Int32" />
+          <Property Name="STATUT_EJEC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="INDIC_SECTOR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NUMERO_OCCURENCE" Type="Int32" Nullable="false" />
+          <Property Name="COMPAGNIE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LIGNE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ENCOURS" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="DIRECTIONENCOURS" Type="Int32" />
+          <Property Name="STATUT_SURETE_EJECTION" Type="Int32" />
+          <Property Name="TYPE_TACHE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TACHE" Type="Int32" />
+          <Property Name="DERNIERE_LOC_CONNUE" Type="Int32" />
+          <NavigationProperty Name="BAGAGE" Relationship="Self.FK_OCCURENCE_BAGAGE_BSM" FromRole="BAGAGE_OCCURENCE" ToRole="BAGAGE" />
+          <NavigationProperty Name="BAGAGE_TRACE" Relationship="Self.FK_TRACE_BAGAGE_OCCURENCE_BAGAGE" FromRole="BAGAGE_OCCURENCE" ToRole="BAGAGE_TRACE" />
+        </EntityType>
+        <EntityType Name="BAGAGE_PARTICULARITE">
+          <Key>
+            <PropertyRef Name="ID_PART" />
+          </Key>
+          <Property Name="ID_PART" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PARTICULARITE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BAGAGEs" Relationship="Self.BAGAGE_A_POUR_PARTICULARITE" FromRole="BAGAGE_PARTICULARITE" ToRole="BAGAGE" />
+        </EntityType>
+        <EntityType Name="BAGAGE_TRACE">
+          <Key>
+            <PropertyRef Name="ID_TRACE" />
+          </Key>
+          <Property Name="ID_TRACE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_OCCURENCE" Type="Int32" Nullable="false" />
+          <Property Name="HOROADATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_LOCALISATION" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <Property Name="STATUT" Type="Int32" />
+          <Property Name="INFO" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BAGAGE_OCCURENCE" Relationship="Self.FK_TRACE_BAGAGE_OCCURENCE_BAGAGE" FromRole="BAGAGE_TRACE" ToRole="BAGAGE_OCCURENCE" />
+        </EntityType>
+        <EntityType Name="BAGAGE_VOL_APPORT">
+          <Key>
+            <PropertyRef Name="COMPAGNIE" />
+            <PropertyRef Name="ID_BAGAGE" />
+            <PropertyRef Name="JOUR_EXPLOITATION" />
+            <PropertyRef Name="LIGNE" />
+          </Key>
+          <Property Name="COMPAGNIE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_BAGAGE" Type="Int32" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="Int16" Nullable="false" />
+          <Property Name="LIGNE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AEROPORT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BAGAGE" Relationship="Self.FK_BSM_VOL_APPORT" FromRole="BAGAGE_VOL_APPORT" ToRole="BAGAGE" />
+        </EntityType>
+        <EntityType Name="BAGAGE_VOL_CNT">
+          <Key>
+            <PropertyRef Name="ID_BAGAGE" />
+            <PropertyRef Name="COMPAGNIE" />
+            <PropertyRef Name="LIGNE" />
+            <PropertyRef Name="JOUR_EXPLOITATION" />
+          </Key>
+          <Property Name="ID_BAGAGE" Type="Int32" Nullable="false" />
+          <Property Name="COMPAGNIE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LIGNE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOUR_EXPLOITATION" Type="Int16" Nullable="false" />
+          <Property Name="AEROPORT" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BAGAGE" Relationship="Self.FK_BSM_VOL_CNT" FromRole="BAGAGE_VOL_CNT" ToRole="BAGAGE" />
+        </EntityType>
+        <EntityType Name="COMPAGNIE">
+          <Key>
+            <PropertyRef Name="ID_COMPAGNIE" />
+          </Key>
+          <Property Name="ID_COMPAGNIE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE_IATA" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NUMERO_ASSISTANT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CODE_OACI" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_OBSOLETE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COMPAGNIE_CLASSE" Relationship="Self.FK_CLASSE_CIE_CIE" FromRole="COMPAGNIE" ToRole="COMPAGNIE_CLASSE" />
+          <NavigationProperty Name="VOLs" Relationship="Self.FK_VOL_CEC" FromRole="COMPAGNIE" ToRole="VOL" />
+          <NavigationProperty Name="VOLs1" Relationship="Self.FK_VOL_CIE" FromRole="COMPAGNIE" ToRole="VOL" />
+        </EntityType>
+        <EntityType Name="COMPAGNIE_CLASSE">
+          <Key>
+            <PropertyRef Name="ID_COMPAGNIE_CLASSE" />
+          </Key>
+          <Property Name="ID_COMPAGNIE_CLASSE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_COMPAGNIE" Type="Int32" Nullable="false" />
+          <Property Name="CLASSE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PRIORITAIRE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="COMPAGNIE" Relationship="Self.FK_CLASSE_CIE_CIE" FromRole="COMPAGNIE_CLASSE" ToRole="COMPAGNIE" />
+        </EntityType>
+        <EntityType Name="CRI_SELECTION">
+          <Key>
+            <PropertyRef Name="ID_CRI_SELECTION" />
+          </Key>
+          <Property Name="ID_CRI_SELECTION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MOD_CHR" Type="Int32" />
+          <Property Name="ID_MOD_SATISFACT" Type="Int32" />
+          <Property Name="TYPE_MODELE" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="EXPRESSION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASSOC_CS_CLA" Relationship="Self.FK_ASSOC_CS_CLA_CRI_SELECTION" FromRole="CRI_SELECTION" ToRole="ASSOC_CS_CLA" />
+          <NavigationProperty Name="MODEL_CHRONOGRAMME" Relationship="Self.FK_CRI_SELECTION_MOD_CHR" FromRole="CRI_SELECTION" ToRole="MODEL_CHRONOGRAMME" />
+          <NavigationProperty Name="MODEL_SATISFACTION" Relationship="Self.FK_CRI_SELECTION_MOD_SATISFACTION" FromRole="CRI_SELECTION" ToRole="MODEL_SATISFACTION" />
+        </EntityType>
+        <EntityType Name="EMPORT">
+          <Key>
+            <PropertyRef Name="ID_EMPORT" />
+          </Key>
+          <Property Name="ID_EMPORT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CHRONOGRAMME" Type="Int32" />
+          <Property Name="NB_BAG_CALCULE" Type="Int16" />
+          <Property Name="D_ANT" Type="DateTime" Precision="3" />
+          <Property Name="D_TPS" Type="DateTime" Precision="3" />
+          <Property Name="D_DER" Type="DateTime" Precision="3" />
+          <Property Name="D_RAT" Type="DateTime" Precision="3" />
+          <Property Name="F_RAT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ASSOC_EMP_CLA" Relationship="Self.FK_ASSOC_EMP_CLA_EMPORT_VOLS" FromRole="EMPORT" ToRole="ASSOC_EMP_CLA" />
+          <NavigationProperty Name="MODEL_CHRONOGRAMME" Relationship="Self.FK_EMPORT_VOLS_MOD_CHR" FromRole="EMPORT" ToRole="MODEL_CHRONOGRAMME" />
+          <NavigationProperty Name="TACHE_GRP_BAGS" Relationship="Self.FK_TAC_GRP_BAGS_EMPORT_VOLS" FromRole="EMPORT" ToRole="TACHE_GRP_BAGS" />
+          <NavigationProperty Name="VOL_DEPART" Relationship="Self.FK_VOL_DEPART_EMPORT_VOLS" FromRole="EMPORT" ToRole="VOL_DEPART" />
+        </EntityType>
+        <EntityType Name="GROUP_TRI">
+          <Key>
+            <PropertyRef Name="ID_GROUP_TRI" />
+          </Key>
+          <Property Name="ID_GROUP_TRI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LIBELLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_CHRONOGRAMME">
+          <Key>
+            <PropertyRef Name="ID_CHRONOGRAMME" />
+          </Key>
+          <Property Name="ID_CHRONOGRAMME" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LIBELLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HDEPREF" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DANT" Type="Int16" Nullable="false" />
+          <Property Name="DOUVTRI" Type="Int16" Nullable="false" />
+          <Property Name="DFTRI" Type="Int16" Nullable="false" />
+          <Property Name="DFDM" Type="Int16" Nullable="false" />
+          <Property Name="DRATES" Type="Int16" Nullable="false" />
+          <Property Name="OBSOLETE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRI_SELECTION" Relationship="Self.FK_CRI_SELECTION_MOD_CHR" FromRole="MODEL_CHRONOGRAMME" ToRole="CRI_SELECTION" />
+          <NavigationProperty Name="EMPORTs" Relationship="Self.FK_EMPORT_VOLS_MOD_CHR" FromRole="MODEL_CHRONOGRAMME" ToRole="EMPORT" />
+        </EntityType>
+        <EntityType Name="MODEL_CLASSEMENT">
+          <Key>
+            <PropertyRef Name="ID_CLASSEMENT" />
+          </Key>
+          <Property Name="ID_CLASSEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LIBELLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EXPRESSION" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OBSOLETE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ASSOC_CS_CLA" Relationship="Self.FK_ASSOC_CS_CLA_MOD_CLA" FromRole="MODEL_CLASSEMENT" ToRole="ASSOC_CS_CLA" />
+          <NavigationProperty Name="ASSOC_EMP_CLA" Relationship="Self.FK_ASSOC_EMP_CLA_MOD_CLA" FromRole="MODEL_CLASSEMENT" ToRole="ASSOC_EMP_CLA" />
+        </EntityType>
+        <EntityType Name="MODEL_SATISFACTION">
+          <Key>
+            <PropertyRef Name="ID_SATISFACTION" />
+          </Key>
+          <Property Name="ID_SATISFACTION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LIBELLE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OBSOLETE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CRI_SELECTION" Relationship="Self.FK_CRI_SELECTION_MOD_SATISFACTION" FromRole="MODEL_SATISFACTION" ToRole="CRI_SELECTION" />
+          <NavigationProperty Name="TACHE_GRP_BAGS" Relationship="Self.FK_TAC_GRP_BAGS_MOD_SATISFACTION" FromRole="MODEL_SATISFACTION" ToRole="TACHE_GRP_BAGS" />
+        </EntityType>
+        <EntityType Name="PARK_AVION">
+          <Key>
+            <PropertyRef Name="ID_PARKING" />
+          </Key>
+          <Property Name="ID_PARKING" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE_PARKING" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ID_SARIA_PARKING" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RESSOURCE_GROUP">
+          <Key>
+            <PropertyRef Name="ID_GROUP" />
+          </Key>
+          <Property Name="ID_GROUP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOM_GROUP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TYPE_RESSOURCE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TACHE_CODE_ALARME">
+          <Key>
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="CODE" Type="Int32" Nullable="false" />
+          <Property Name="MESSAGE" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TACHE_ENTREE_TRI">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_RES" Type="Int32" Nullable="false" />
+          <Property Name="ID_RES_IN" Type="Int32" />
+          <Property Name="TDEB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NIV_ALA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ALA" Type="Int16" />
+          <Property Name="CAR_CLASS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TACHE_MERE" Type="Int32" />
+          <Property Name="NB_BAGS_EN_COURS" Type="Int32" />
+          <NavigationProperty Name="TACHE_ENTREE_TRI1" Relationship="Self.FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_ENTREE_TRI" ToRole="TACHE_ENTREE_TRI1" />
+          <NavigationProperty Name="TACHE_ENTREE_TRI2" Relationship="Self.FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_ENTREE_TRI1" ToRole="TACHE_ENTREE_TRI" />
+        </EntityType>
+        <EntityType Name="TACHE_GLOB">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_RES" Type="Int32" />
+          <Property Name="TYP_TAC_GLOB" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TDEB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NIV_ALA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ALA" Type="Int16" />
+          <Property Name="CAR_CLASS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TACHE_MERE" Type="Int32" />
+          <Property Name="NB_BAGS_EN_COURS" Type="Int32" />
+          <NavigationProperty Name="TACHE_GLOB1" Relationship="Self.FK_GLOB_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_GLOB" ToRole="TACHE_GLOB1" />
+          <NavigationProperty Name="TACHE_GLOB2" Relationship="Self.FK_GLOB_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_GLOB1" ToRole="TACHE_GLOB" />
+        </EntityType>
+        <EntityType Name="TACHE_GRP_BAGS">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_EMPORT" Type="Int32" Nullable="false" />
+          <Property Name="ID_MOD_SATISFACT" Type="Int32" />
+          <Property Name="ID_RES" Type="Int32" />
+          <Property Name="STATUT_TEMPOREL" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TDEB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NIV_ALA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ALA" Type="Int16" />
+          <Property Name="CAR_CLASS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TACHE_MERE" Type="Int32" />
+          <Property Name="NB_BAGS_EN_COURS" Type="Int32" />
+          <Property Name="NB_CONTAINERS" Type="Int32" />
+          <NavigationProperty Name="EMPORT" Relationship="Self.FK_TAC_GRP_BAGS_EMPORT_VOLS" FromRole="TACHE_GRP_BAGS" ToRole="EMPORT" />
+          <NavigationProperty Name="MODEL_SATISFACTION" Relationship="Self.FK_TAC_GRP_BAGS_MOD_SATISFACTION" FromRole="TACHE_GRP_BAGS" ToRole="MODEL_SATISFACTION" />
+          <NavigationProperty Name="TACHE_GRP_BAGS1" Relationship="Self.FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_GRP_BAGS" ToRole="TACHE_GRP_BAGS1" />
+          <NavigationProperty Name="TACHE_GRP_BAGS2" Relationship="Self.FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_GRP_BAGS1" ToRole="TACHE_GRP_BAGS" />
+        </EntityType>
+        <EntityType Name="TACHE_SEC_ROUT">
+          <Key>
+            <PropertyRef Name="ID_TACHE" />
+          </Key>
+          <Property Name="ID_TACHE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_RES" Type="Int32" />
+          <Property Name="TYP_SECOURS" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TRI_SECOURS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TDEB" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TFIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NIV_ALA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ALA" Type="Int16" />
+          <Property Name="CAR_CLASS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TACHE_MERE" Type="Int32" />
+          <Property Name="NB_BAGS_EN_COURS" Type="Int32" />
+          <NavigationProperty Name="TACHE_SEC_ROUT1" Relationship="Self.FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_SEC_ROUT" ToRole="TACHE_SEC_ROUT1" />
+          <NavigationProperty Name="TACHE_SEC_ROUT2" Relationship="Self.FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE" FromRole="TACHE_SEC_ROUT1" ToRole="TACHE_SEC_ROUT" />
+        </EntityType>
+        <EntityType Name="VOL">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CIE" Type="Int32" Nullable="false" />
+          <Property Name="ID_CEC" Type="Int32" />
+          <Property Name="LIG" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JEX" Type="Int16" Nullable="false" />
+          <Property Name="QRF" Type="Int16" Nullable="false" />
+          <Property Name="DHC" Type="DateTime" Precision="3" />
+          <Property Name="SPK" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="STA" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DOA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PKG" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="TDH" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="NAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="REP" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BAGAGEs" Relationship="Self.FK_BSM_VOL" FromRole="VOL" ToRole="BAGAGE" />
+          <NavigationProperty Name="COMPAGNIE" Relationship="Self.FK_VOL_CEC" FromRole="VOL" ToRole="COMPAGNIE" />
+          <NavigationProperty Name="COMPAGNIE1" Relationship="Self.FK_VOL_CIE" FromRole="VOL" ToRole="COMPAGNIE" />
+          <NavigationProperty Name="VOL_ITINERAIRE" Relationship="Self.FK_ITI" FromRole="VOL" ToRole="VOL_ITINERAIRE" />
+          <NavigationProperty Name="VOL_ARRIVE" Relationship="Self.FK_VOL_ARRIVE_VOL" FromRole="VOL" ToRole="VOL_ARRIVE" />
+          <NavigationProperty Name="VOL_DEPART" Relationship="Self.FK_VOL_DEPART_VOL" FromRole="VOL" ToRole="VOL_DEPART" />
+        </EntityType>
+        <EntityType Name="VOL_ARRIVE">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="Int32" Nullable="false" />
+          <Property Name="AER_ORIGINE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="CTRL_SUR_OK" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="VOL" Relationship="Self.FK_VOL_ARRIVE_VOL" FromRole="VOL_ARRIVE" ToRole="VOL" />
+        </EntityType>
+        <EntityType Name="VOL_DEPART">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_VOL" Type="Int32" Nullable="false" />
+          <Property Name="ID_EMPORT" Type="Int32" />
+          <Property Name="SHA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CRE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TYP" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="JUR" Type="Int16" />
+          <Property Name="SCT" Type="DateTime" Precision="3" />
+          <Property Name="AVC" Type="DateTime" Precision="3" />
+          <Property Name="IMM" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="PAX" Type="Int16" />
+          <Property Name="MAS" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="DES" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="EMPORT" Relationship="Self.FK_VOL_DEPART_EMPORT_VOLS" FromRole="VOL_DEPART" ToRole="EMPORT" />
+          <NavigationProperty Name="VOL" Relationship="Self.FK_VOL_DEPART_VOL" FromRole="VOL_DEPART" ToRole="VOL" />
+        </EntityType>
+        <EntityType Name="VOL_ENRGT_SUR">
+          <Key>
+            <PropertyRef Name="ID_RES" />
+            <PropertyRef Name="ID_VOL" />
+          </Key>
+          <Property Name="ID_RES" Type="Int32" Nullable="false" />
+          <Property Name="ID_VOL" Type="Int32" Nullable="false" />
+          <Property Name="DEBUT" Type="DateTime" Precision="3" />
+          <Property Name="FIN" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="VOL_ENRGT_SUR1" Relationship="Self.FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR" FromRole="VOL_ENRGT_SUR" ToRole="VOL_ENRGT_SUR1" />
+          <NavigationProperty Name="VOL_ENRGT_SUR2" Relationship="Self.FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR" FromRole="VOL_ENRGT_SUR1" ToRole="VOL_ENRGT_SUR" />
+        </EntityType>
+        <EntityType Name="VOL_ITINERAIRE">
+          <Key>
+            <PropertyRef Name="ID_VOL" />
+            <PropertyRef Name="CODE_VILLE" />
+            <PropertyRef Name="ORDRE_ESCALE" />
+          </Key>
+          <Property Name="ID_VOL" Type="Int32" Nullable="false" />
+          <Property Name="CODE_VILLE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ORDRE_ESCALE" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="VOL" Relationship="Self.FK_ITI" FromRole="VOL_ITINERAIRE" ToRole="VOL" />
+        </EntityType>
+        <EntityType Name="VOL_TYP_AVION">
+          <Key>
+            <PropertyRef Name="ID_TYP_AVION" />
+          </Key>
+          <Property Name="ID_TYP_AVION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYP" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LIB" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PAX_STD" Type="Int32" />
+          <Property Name="PAX_MAX" Type="Int16" />
+          <Property Name="OBS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RESSOURCE">
+          <Key>
+            <PropertyRef Name="ID_RESSOURCE" />
+            <PropertyRef Name="ID_GROUP_TRI" />
+            <PropertyRef Name="ID_RESSOURCE_GROUP" />
+            <PropertyRef Name="ID_LOCALISATION" />
+          </Key>
+          <Property Name="ID_RESSOURCE" Type="Int32" Nullable="false" />
+          <Property Name="ID_GROUP_TRI" Type="Int32" Nullable="false" />
+          <Property Name="ID_RESSOURCE_GROUP" Type="Int32" Nullable="false" />
+          <Property Name="ID_LOCALISATION" Type="Int32" Nullable="false" />
+          <Property Name="NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_ASSOC_CS_CLA_CRI_SELECTION">
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="1" />
+          <End Role="ASSOC_CS_CLA" Type="Self.ASSOC_CS_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CRI_SELECTION">
+              <PropertyRef Name="ID_CRI_SELECTION" />
+            </Principal>
+            <Dependent Role="ASSOC_CS_CLA">
+              <PropertyRef Name="ID_CRI_SELECTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_CS_CLA_MOD_CLA">
+          <End Role="MODEL_CLASSEMENT" Type="Self.MODEL_CLASSEMENT" Multiplicity="1" />
+          <End Role="ASSOC_CS_CLA" Type="Self.ASSOC_CS_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CLASSEMENT">
+              <PropertyRef Name="ID_CLASSEMENT" />
+            </Principal>
+            <Dependent Role="ASSOC_CS_CLA">
+              <PropertyRef Name="ID_MOD_CLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_EMP_CLA_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ASSOC_EMP_CLA" Type="Self.ASSOC_EMP_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="ASSOC_EMP_CLA">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSOC_EMP_CLA_MOD_CLA">
+          <End Role="MODEL_CLASSEMENT" Type="Self.MODEL_CLASSEMENT" Multiplicity="1" />
+          <End Role="ASSOC_EMP_CLA" Type="Self.ASSOC_EMP_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CLASSEMENT">
+              <PropertyRef Name="ID_CLASSEMENT" />
+            </Principal>
+            <Dependent Role="ASSOC_EMP_CLA">
+              <PropertyRef Name="ID_MOD_CLA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="BAGAGE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL_APPORT">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_VOL_APPORT" Type="Self.BAGAGE_VOL_APPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_VOL_APPORT">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BSM_VOL_CNT">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_VOL_CNT" Type="Self.BAGAGE_VOL_CNT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_VOL_CNT">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OCCURENCE_BAGAGE_BSM">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_OCCURENCE" Type="Self.BAGAGE_OCCURENCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Principal>
+            <Dependent Role="BAGAGE_OCCURENCE">
+              <PropertyRef Name="ID_BAGAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TRACE_BAGAGE_OCCURENCE_BAGAGE">
+          <End Role="BAGAGE_OCCURENCE" Type="Self.BAGAGE_OCCURENCE" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BAGAGE_TRACE" Type="Self.BAGAGE_TRACE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAGAGE_OCCURENCE">
+              <PropertyRef Name="ID_OCCURENCE" />
+            </Principal>
+            <Dependent Role="BAGAGE_TRACE">
+              <PropertyRef Name="ID_OCCURENCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CLASSE_CIE_CIE">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="1" />
+          <End Role="COMPAGNIE_CLASSE" Type="Self.COMPAGNIE_CLASSE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="COMPAGNIE_CLASSE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_CEC">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="0..1" />
+          <End Role="VOL" Type="Self.VOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="VOL">
+              <PropertyRef Name="ID_CEC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_CIE">
+          <End Role="COMPAGNIE" Type="Self.COMPAGNIE" Multiplicity="1" />
+          <End Role="VOL" Type="Self.VOL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMPAGNIE">
+              <PropertyRef Name="ID_COMPAGNIE" />
+            </Principal>
+            <Dependent Role="VOL">
+              <PropertyRef Name="ID_CIE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRI_SELECTION_MOD_CHR">
+          <End Role="MODEL_CHRONOGRAMME" Type="Self.MODEL_CHRONOGRAMME" Multiplicity="0..1" />
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CHRONOGRAMME">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Principal>
+            <Dependent Role="CRI_SELECTION">
+              <PropertyRef Name="ID_MOD_CHR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CRI_SELECTION_MOD_SATISFACTION">
+          <End Role="MODEL_SATISFACTION" Type="Self.MODEL_SATISFACTION" Multiplicity="0..1" />
+          <End Role="CRI_SELECTION" Type="Self.CRI_SELECTION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_SATISFACTION">
+              <PropertyRef Name="ID_SATISFACTION" />
+            </Principal>
+            <Dependent Role="CRI_SELECTION">
+              <PropertyRef Name="ID_MOD_SATISFACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPORT_VOLS_MOD_CHR">
+          <End Role="MODEL_CHRONOGRAMME" Type="Self.MODEL_CHRONOGRAMME" Multiplicity="0..1" />
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_CHRONOGRAMME">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Principal>
+            <Dependent Role="EMPORT">
+              <PropertyRef Name="ID_CHRONOGRAMME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAC_GRP_BAGS_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_DEPART_EMPORT_VOLS">
+          <End Role="EMPORT" Type="Self.EMPORT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_DEPART" Type="Self.VOL_DEPART" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPORT">
+              <PropertyRef Name="ID_EMPORT" />
+            </Principal>
+            <Dependent Role="VOL_DEPART">
+              <PropertyRef Name="ID_EMPORT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TAC_GRP_BAGS_MOD_SATISFACTION">
+          <End Role="MODEL_SATISFACTION" Type="Self.MODEL_SATISFACTION" Multiplicity="0..1" />
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODEL_SATISFACTION">
+              <PropertyRef Name="ID_SATISFACTION" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_MOD_SATISFACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_ENTREE_TRI" Type="Self.TACHE_ENTREE_TRI" Multiplicity="0..1" />
+          <End Role="TACHE_ENTREE_TRI1" Type="Self.TACHE_ENTREE_TRI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_ENTREE_TRI">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_ENTREE_TRI1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GLOB_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_GLOB" Type="Self.TACHE_GLOB" Multiplicity="0..1" />
+          <End Role="TACHE_GLOB1" Type="Self.TACHE_GLOB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_GLOB">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_GLOB1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_GRP_BAGS" Type="Self.TACHE_GRP_BAGS" Multiplicity="0..1" />
+          <End Role="TACHE_GRP_BAGS1" Type="Self.TACHE_GRP_BAGS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_GRP_BAGS">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_GRP_BAGS1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE">
+          <End Role="TACHE_SEC_ROUT" Type="Self.TACHE_SEC_ROUT" Multiplicity="0..1" />
+          <End Role="TACHE_SEC_ROUT1" Type="Self.TACHE_SEC_ROUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACHE_SEC_ROUT">
+              <PropertyRef Name="ID_TACHE" />
+            </Principal>
+            <Dependent Role="TACHE_SEC_ROUT1">
+              <PropertyRef Name="ID_TACHE_MERE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITI">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_ITINERAIRE" Type="Self.VOL_ITINERAIRE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ITINERAIRE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_ARRIVE_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_ARRIVE" Type="Self.VOL_ARRIVE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ARRIVE">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_DEPART_VOL">
+          <End Role="VOL" Type="Self.VOL" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="VOL_DEPART" Type="Self.VOL_DEPART" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL">
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_DEPART">
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR">
+          <End Role="VOL_ENRGT_SUR" Type="Self.VOL_ENRGT_SUR" Multiplicity="1" />
+          <End Role="VOL_ENRGT_SUR1" Type="Self.VOL_ENRGT_SUR" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="VOL_ENRGT_SUR">
+              <PropertyRef Name="ID_RES" />
+              <PropertyRef Name="ID_VOL" />
+            </Principal>
+            <Dependent Role="VOL_ENRGT_SUR1">
+              <PropertyRef Name="ID_RES" />
+              <PropertyRef Name="ID_VOL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BAGAGE_A_POUR_PARTICULARITE">
+          <End Role="BAGAGE" Type="Self.BAGAGE" Multiplicity="*" />
+          <End Role="BAGAGE_PARTICULARITE" Type="Self.BAGAGE_PARTICULARITE" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MyAirportEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AEROPORTs" EntityType="Self.AEROPORT" />
+          <EntitySet Name="ASSOC_CS_CLA" EntityType="Self.ASSOC_CS_CLA" />
+          <EntitySet Name="ASSOC_EMP_CLA" EntityType="Self.ASSOC_EMP_CLA" />
+          <EntitySet Name="BAGAGEs" EntityType="Self.BAGAGE" />
+          <EntitySet Name="BAGAGE_OCCURENCE" EntityType="Self.BAGAGE_OCCURENCE" />
+          <EntitySet Name="BAGAGE_PARTICULARITE" EntityType="Self.BAGAGE_PARTICULARITE" />
+          <EntitySet Name="BAGAGE_TRACE" EntityType="Self.BAGAGE_TRACE" />
+          <EntitySet Name="BAGAGE_VOL_APPORT" EntityType="Self.BAGAGE_VOL_APPORT" />
+          <EntitySet Name="BAGAGE_VOL_CNT" EntityType="Self.BAGAGE_VOL_CNT" />
+          <EntitySet Name="COMPAGNIEs" EntityType="Self.COMPAGNIE" />
+          <EntitySet Name="COMPAGNIE_CLASSE" EntityType="Self.COMPAGNIE_CLASSE" />
+          <EntitySet Name="CRI_SELECTION" EntityType="Self.CRI_SELECTION" />
+          <EntitySet Name="EMPORTs" EntityType="Self.EMPORT" />
+          <EntitySet Name="GROUP_TRI" EntityType="Self.GROUP_TRI" />
+          <EntitySet Name="MODEL_CHRONOGRAMME" EntityType="Self.MODEL_CHRONOGRAMME" />
+          <EntitySet Name="MODEL_CLASSEMENT" EntityType="Self.MODEL_CLASSEMENT" />
+          <EntitySet Name="MODEL_SATISFACTION" EntityType="Self.MODEL_SATISFACTION" />
+          <EntitySet Name="PARK_AVION" EntityType="Self.PARK_AVION" />
+          <EntitySet Name="RESSOURCE_GROUP" EntityType="Self.RESSOURCE_GROUP" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TACHE_CODE_ALARME" EntityType="Self.TACHE_CODE_ALARME" />
+          <EntitySet Name="TACHE_ENTREE_TRI" EntityType="Self.TACHE_ENTREE_TRI" />
+          <EntitySet Name="TACHE_GLOB" EntityType="Self.TACHE_GLOB" />
+          <EntitySet Name="TACHE_GRP_BAGS" EntityType="Self.TACHE_GRP_BAGS" />
+          <EntitySet Name="TACHE_SEC_ROUT" EntityType="Self.TACHE_SEC_ROUT" />
+          <EntitySet Name="VOLs" EntityType="Self.VOL" />
+          <EntitySet Name="VOL_ARRIVE" EntityType="Self.VOL_ARRIVE" />
+          <EntitySet Name="VOL_DEPART" EntityType="Self.VOL_DEPART" />
+          <EntitySet Name="VOL_ENRGT_SUR" EntityType="Self.VOL_ENRGT_SUR" />
+          <EntitySet Name="VOL_ITINERAIRE" EntityType="Self.VOL_ITINERAIRE" />
+          <EntitySet Name="VOL_TYP_AVION" EntityType="Self.VOL_TYP_AVION" />
+          <EntitySet Name="RESSOURCEs" EntityType="Self.RESSOURCE" />
+          <AssociationSet Name="FK_ASSOC_CS_CLA_CRI_SELECTION" Association="Self.FK_ASSOC_CS_CLA_CRI_SELECTION">
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+            <End Role="ASSOC_CS_CLA" EntitySet="ASSOC_CS_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_CS_CLA_MOD_CLA" Association="Self.FK_ASSOC_CS_CLA_MOD_CLA">
+            <End Role="MODEL_CLASSEMENT" EntitySet="MODEL_CLASSEMENT" />
+            <End Role="ASSOC_CS_CLA" EntitySet="ASSOC_CS_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_EMP_CLA_EMPORT_VOLS" Association="Self.FK_ASSOC_EMP_CLA_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORTs" />
+            <End Role="ASSOC_EMP_CLA" EntitySet="ASSOC_EMP_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSOC_EMP_CLA_MOD_CLA" Association="Self.FK_ASSOC_EMP_CLA_MOD_CLA">
+            <End Role="MODEL_CLASSEMENT" EntitySet="MODEL_CLASSEMENT" />
+            <End Role="ASSOC_EMP_CLA" EntitySet="ASSOC_EMP_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL" Association="Self.FK_BSM_VOL">
+            <End Role="VOL" EntitySet="VOLs" />
+            <End Role="BAGAGE" EntitySet="BAGAGEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL_APPORT" Association="Self.FK_BSM_VOL_APPORT">
+            <End Role="BAGAGE" EntitySet="BAGAGEs" />
+            <End Role="BAGAGE_VOL_APPORT" EntitySet="BAGAGE_VOL_APPORT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BSM_VOL_CNT" Association="Self.FK_BSM_VOL_CNT">
+            <End Role="BAGAGE" EntitySet="BAGAGEs" />
+            <End Role="BAGAGE_VOL_CNT" EntitySet="BAGAGE_VOL_CNT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OCCURENCE_BAGAGE_BSM" Association="Self.FK_OCCURENCE_BAGAGE_BSM">
+            <End Role="BAGAGE" EntitySet="BAGAGEs" />
+            <End Role="BAGAGE_OCCURENCE" EntitySet="BAGAGE_OCCURENCE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TRACE_BAGAGE_OCCURENCE_BAGAGE" Association="Self.FK_TRACE_BAGAGE_OCCURENCE_BAGAGE">
+            <End Role="BAGAGE_OCCURENCE" EntitySet="BAGAGE_OCCURENCE" />
+            <End Role="BAGAGE_TRACE" EntitySet="BAGAGE_TRACE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CLASSE_CIE_CIE" Association="Self.FK_CLASSE_CIE_CIE">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIEs" />
+            <End Role="COMPAGNIE_CLASSE" EntitySet="COMPAGNIE_CLASSE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_CEC" Association="Self.FK_VOL_CEC">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIEs" />
+            <End Role="VOL" EntitySet="VOLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_CIE" Association="Self.FK_VOL_CIE">
+            <End Role="COMPAGNIE" EntitySet="COMPAGNIEs" />
+            <End Role="VOL" EntitySet="VOLs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRI_SELECTION_MOD_CHR" Association="Self.FK_CRI_SELECTION_MOD_CHR">
+            <End Role="MODEL_CHRONOGRAMME" EntitySet="MODEL_CHRONOGRAMME" />
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CRI_SELECTION_MOD_SATISFACTION" Association="Self.FK_CRI_SELECTION_MOD_SATISFACTION">
+            <End Role="MODEL_SATISFACTION" EntitySet="MODEL_SATISFACTION" />
+            <End Role="CRI_SELECTION" EntitySet="CRI_SELECTION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPORT_VOLS_MOD_CHR" Association="Self.FK_EMPORT_VOLS_MOD_CHR">
+            <End Role="MODEL_CHRONOGRAMME" EntitySet="MODEL_CHRONOGRAMME" />
+            <End Role="EMPORT" EntitySet="EMPORTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAC_GRP_BAGS_EMPORT_VOLS" Association="Self.FK_TAC_GRP_BAGS_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORTs" />
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_DEPART_EMPORT_VOLS" Association="Self.FK_VOL_DEPART_EMPORT_VOLS">
+            <End Role="EMPORT" EntitySet="EMPORTs" />
+            <End Role="VOL_DEPART" EntitySet="VOL_DEPART" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TAC_GRP_BAGS_MOD_SATISFACTION" Association="Self.FK_TAC_GRP_BAGS_MOD_SATISFACTION">
+            <End Role="MODEL_SATISFACTION" EntitySet="MODEL_SATISFACTION" />
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE" Association="Self.FK_ENTREE_TRI_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_ENTREE_TRI" EntitySet="TACHE_ENTREE_TRI" />
+            <End Role="TACHE_ENTREE_TRI1" EntitySet="TACHE_ENTREE_TRI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GLOB_TACHE_FILLE_TACHE_MERE" Association="Self.FK_GLOB_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_GLOB" EntitySet="TACHE_GLOB" />
+            <End Role="TACHE_GLOB1" EntitySet="TACHE_GLOB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE" Association="Self.FK_GRP_BAGS_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_GRP_BAGS" EntitySet="TACHE_GRP_BAGS" />
+            <End Role="TACHE_GRP_BAGS1" EntitySet="TACHE_GRP_BAGS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE" Association="Self.FK_SEC_ROUT_TACHE_FILLE_TACHE_MERE">
+            <End Role="TACHE_SEC_ROUT" EntitySet="TACHE_SEC_ROUT" />
+            <End Role="TACHE_SEC_ROUT1" EntitySet="TACHE_SEC_ROUT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITI" Association="Self.FK_ITI">
+            <End Role="VOL" EntitySet="VOLs" />
+            <End Role="VOL_ITINERAIRE" EntitySet="VOL_ITINERAIRE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_ARRIVE_VOL" Association="Self.FK_VOL_ARRIVE_VOL">
+            <End Role="VOL" EntitySet="VOLs" />
+            <End Role="VOL_ARRIVE" EntitySet="VOL_ARRIVE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_DEPART_VOL" Association="Self.FK_VOL_DEPART_VOL">
+            <End Role="VOL" EntitySet="VOLs" />
+            <End Role="VOL_DEPART" EntitySet="VOL_DEPART" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR" Association="Self.FK_VOL_ENRGT_SUR_VOL_ENRGT_SUR">
+            <End Role="VOL_ENRGT_SUR" EntitySet="VOL_ENRGT_SUR" />
+            <End Role="VOL_ENRGT_SUR1" EntitySet="VOL_ENRGT_SUR" />
+          </AssociationSet>
+          <AssociationSet Name="BAGAGE_A_POUR_PARTICULARITE" Association="Self.BAGAGE_A_POUR_PARTICULARITE">
+            <End Role="BAGAGE" EntitySet="BAGAGEs" />
+            <End Role="BAGAGE_PARTICULARITE" EntitySet="BAGAGE_PARTICULARITE" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyAirportModelStoreContainer" CdmEntityContainer="MyAirportEntities">
+          <EntitySetMapping Name="AEROPORTs">
+            <EntityTypeMapping TypeName="MyAirportModel.AEROPORT">
+              <MappingFragment StoreEntitySet="AEROPORT">
+                <ScalarProperty Name="ID_AEROPORT" ColumnName="ID_AEROPORT" />
+                <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="LONG_COURRIER" ColumnName="LONG_COURRIER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSOC_CS_CLA">
+            <EntityTypeMapping TypeName="MyAirportModel.ASSOC_CS_CLA">
+              <MappingFragment StoreEntitySet="ASSOC_CS_CLA">
+                <ScalarProperty Name="ID_MOD_CLA" ColumnName="ID_MOD_CLA" />
+                <ScalarProperty Name="ID_CRI_SELECTION" ColumnName="ID_CRI_SELECTION" />
+                <ScalarProperty Name="ORDRE_TEMPOREL" ColumnName="ORDRE_TEMPOREL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSOC_EMP_CLA">
+            <EntityTypeMapping TypeName="MyAirportModel.ASSOC_EMP_CLA">
+              <MappingFragment StoreEntitySet="ASSOC_EMP_CLA">
+                <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+                <ScalarProperty Name="ID_MOD_CLA" ColumnName="ID_MOD_CLA" />
+                <ScalarProperty Name="ORDRE_TEMPOREL" ColumnName="ORDRE_TEMPOREL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGEs">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE">
+              <MappingFragment StoreEntitySet="BAGAGE">
+                <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+                <ScalarProperty Name="ORIGINE_CREATION" ColumnName="ORIGINE_CREATION" />
+                <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+                <ScalarProperty Name="CLASSE" ColumnName="CLASSE" />
+                <ScalarProperty Name="PRIORITAIRE" ColumnName="PRIORITAIRE" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="LOCAL_TRANFERT" ColumnName="LOCAL_TRANFERT" />
+                <ScalarProperty Name="NSUR" ColumnName="NSUR" />
+                <ScalarProperty Name="SSUR" ColumnName="SSUR" />
+                <ScalarProperty Name="ISUR" ColumnName="ISUR" />
+                <ScalarProperty Name="TSUR" ColumnName="TSUR" />
+                <ScalarProperty Name="GSUR" ColumnName="GSUR" />
+                <ScalarProperty Name="CSUR" ColumnName="CSUR" />
+                <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+                <ScalarProperty Name="ESCALE" ColumnName="ESCALE" />
+                <ScalarProperty Name="EMB" ColumnName="EMB" />
+                <ScalarProperty Name="RECOLE" ColumnName="RECOLE" />
+                <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+                <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+                <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+                <ScalarProperty Name="CONTINUATION" ColumnName="CONTINUATION" />
+                <ScalarProperty Name="STATUT_EJECTION" ColumnName="STATUT_EJECTION" />
+                <ScalarProperty Name="STATUT_TEMPOREL" ColumnName="STATUT_TEMPOREL" />
+                <ScalarProperty Name="DCS_EMETTEUR" ColumnName="DCS_EMETTEUR" />
+                <ScalarProperty Name="ORIGINE_SAFIR" ColumnName="ORIGINE_SAFIR" />
+                <ScalarProperty Name="EN_CONTINUATION" ColumnName="EN_CONTINUATION" />
+                <ScalarProperty Name="EN_TRANSFERT" ColumnName="EN_TRANSFERT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGE_OCCURENCE">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_OCCURENCE">
+              <MappingFragment StoreEntitySet="BAGAGE_OCCURENCE">
+                <ScalarProperty Name="ID_OCCURENCE" ColumnName="ID_OCCURENCE" />
+                <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+                <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+                <ScalarProperty Name="HORODATE_ENTREE_TRI" ColumnName="HORODATE_ENTREE_TRI" />
+                <ScalarProperty Name="DESTINATION1" ColumnName="DESTINATION1" />
+                <ScalarProperty Name="DESTINATION4" ColumnName="DESTINATION4" />
+                <ScalarProperty Name="STATUT_EJEC" ColumnName="STATUT_EJEC" />
+                <ScalarProperty Name="INDIC_SECTOR" ColumnName="INDIC_SECTOR" />
+                <ScalarProperty Name="NUMERO_OCCURENCE" ColumnName="NUMERO_OCCURENCE" />
+                <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+                <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+                <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+                <ScalarProperty Name="ENCOURS" ColumnName="ENCOURS" />
+                <ScalarProperty Name="DIRECTIONENCOURS" ColumnName="DIRECTIONENCOURS" />
+                <ScalarProperty Name="STATUT_SURETE_EJECTION" ColumnName="STATUT_SURETE_EJECTION" />
+                <ScalarProperty Name="TYPE_TACHE" ColumnName="TYPE_TACHE" />
+                <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+                <ScalarProperty Name="DERNIERE_LOC_CONNUE" ColumnName="DERNIERE_LOC_CONNUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGE_PARTICULARITE">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_PARTICULARITE">
+              <MappingFragment StoreEntitySet="BAGAGE_PARTICULARITE">
+                <ScalarProperty Name="ID_PART" ColumnName="ID_PART" />
+                <ScalarProperty Name="PARTICULARITE" ColumnName="PARTICULARITE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGE_TRACE">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_TRACE">
+              <MappingFragment StoreEntitySet="BAGAGE_TRACE">
+                <ScalarProperty Name="ID_TRACE" ColumnName="ID_TRACE" />
+                <ScalarProperty Name="ID_OCCURENCE" ColumnName="ID_OCCURENCE" />
+                <ScalarProperty Name="HOROADATE" ColumnName="HOROADATE" />
+                <ScalarProperty Name="ID_LOCALISATION" ColumnName="ID_LOCALISATION" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="STATUT" ColumnName="STATUT" />
+                <ScalarProperty Name="INFO" ColumnName="INFO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGE_VOL_APPORT">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_VOL_APPORT">
+              <MappingFragment StoreEntitySet="BAGAGE_VOL_APPORT">
+                <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+                <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+                <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+                <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+                <ScalarProperty Name="AEROPORT" ColumnName="AEROPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BAGAGE_VOL_CNT">
+            <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_VOL_CNT">
+              <MappingFragment StoreEntitySet="BAGAGE_VOL_CNT">
+                <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+                <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+                <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+                <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+                <ScalarProperty Name="AEROPORT" ColumnName="AEROPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPAGNIEs">
+            <EntityTypeMapping TypeName="MyAirportModel.COMPAGNIE">
+              <MappingFragment StoreEntitySet="COMPAGNIE">
+                <ScalarProperty Name="ID_COMPAGNIE" ColumnName="ID_COMPAGNIE" />
+                <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+                <ScalarProperty Name="NUMERO_ASSISTANT" ColumnName="NUMERO_ASSISTANT" />
+                <ScalarProperty Name="CODE_OACI" ColumnName="CODE_OACI" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="DATE_OBSOLETE" ColumnName="DATE_OBSOLETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPAGNIE_CLASSE">
+            <EntityTypeMapping TypeName="MyAirportModel.COMPAGNIE_CLASSE">
+              <MappingFragment StoreEntitySet="COMPAGNIE_CLASSE">
+                <ScalarProperty Name="ID_COMPAGNIE_CLASSE" ColumnName="ID_COMPAGNIE_CLASSE" />
+                <ScalarProperty Name="ID_COMPAGNIE" ColumnName="ID_COMPAGNIE" />
+                <ScalarProperty Name="CLASSE" ColumnName="CLASSE" />
+                <ScalarProperty Name="PRIORITAIRE" ColumnName="PRIORITAIRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CRI_SELECTION">
+            <EntityTypeMapping TypeName="MyAirportModel.CRI_SELECTION">
+              <MappingFragment StoreEntitySet="CRI_SELECTION">
+                <ScalarProperty Name="ID_CRI_SELECTION" ColumnName="ID_CRI_SELECTION" />
+                <ScalarProperty Name="ID_MOD_CHR" ColumnName="ID_MOD_CHR" />
+                <ScalarProperty Name="ID_MOD_SATISFACT" ColumnName="ID_MOD_SATISFACT" />
+                <ScalarProperty Name="TYPE_MODELE" ColumnName="TYPE_MODELE" />
+                <ScalarProperty Name="EXPRESSION" ColumnName="EXPRESSION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPORTs">
+            <EntityTypeMapping TypeName="MyAirportModel.EMPORT">
+              <MappingFragment StoreEntitySet="EMPORT">
+                <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+                <ScalarProperty Name="ID_CHRONOGRAMME" ColumnName="ID_CHRONOGRAMME" />
+                <ScalarProperty Name="NB_BAG_CALCULE" ColumnName="NB_BAG_CALCULE" />
+                <ScalarProperty Name="D_ANT" ColumnName="D_ANT" />
+                <ScalarProperty Name="D_TPS" ColumnName="D_TPS" />
+                <ScalarProperty Name="D_DER" ColumnName="D_DER" />
+                <ScalarProperty Name="D_RAT" ColumnName="D_RAT" />
+                <ScalarProperty Name="F_RAT" ColumnName="F_RAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GROUP_TRI">
+            <EntityTypeMapping TypeName="MyAirportModel.GROUP_TRI">
+              <MappingFragment StoreEntitySet="GROUP_TRI">
+                <ScalarProperty Name="ID_GROUP_TRI" ColumnName="ID_GROUP_TRI" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODEL_CHRONOGRAMME">
+            <EntityTypeMapping TypeName="MyAirportModel.MODEL_CHRONOGRAMME">
+              <MappingFragment StoreEntitySet="MODEL_CHRONOGRAMME">
+                <ScalarProperty Name="ID_CHRONOGRAMME" ColumnName="ID_CHRONOGRAMME" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+                <ScalarProperty Name="HDEPREF" ColumnName="HDEPREF" />
+                <ScalarProperty Name="DANT" ColumnName="DANT" />
+                <ScalarProperty Name="DOUVTRI" ColumnName="DOUVTRI" />
+                <ScalarProperty Name="DFTRI" ColumnName="DFTRI" />
+                <ScalarProperty Name="DFDM" ColumnName="DFDM" />
+                <ScalarProperty Name="DRATES" ColumnName="DRATES" />
+                <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODEL_CLASSEMENT">
+            <EntityTypeMapping TypeName="MyAirportModel.MODEL_CLASSEMENT">
+              <MappingFragment StoreEntitySet="MODEL_CLASSEMENT">
+                <ScalarProperty Name="ID_CLASSEMENT" ColumnName="ID_CLASSEMENT" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+                <ScalarProperty Name="EXPRESSION" ColumnName="EXPRESSION" />
+                <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODEL_SATISFACTION">
+            <EntityTypeMapping TypeName="MyAirportModel.MODEL_SATISFACTION">
+              <MappingFragment StoreEntitySet="MODEL_SATISFACTION">
+                <ScalarProperty Name="ID_SATISFACTION" ColumnName="ID_SATISFACTION" />
+                <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+                <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARK_AVION">
+            <EntityTypeMapping TypeName="MyAirportModel.PARK_AVION">
+              <MappingFragment StoreEntitySet="PARK_AVION">
+                <ScalarProperty Name="ID_PARKING" ColumnName="ID_PARKING" />
+                <ScalarProperty Name="CODE_PARKING" ColumnName="CODE_PARKING" />
+                <ScalarProperty Name="ID_SARIA_PARKING" ColumnName="ID_SARIA_PARKING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESSOURCE_GROUP">
+            <EntityTypeMapping TypeName="MyAirportModel.RESSOURCE_GROUP">
+              <MappingFragment StoreEntitySet="RESSOURCE_GROUP">
+                <ScalarProperty Name="ID_GROUP" ColumnName="ID_GROUP" />
+                <ScalarProperty Name="NOM_GROUP" ColumnName="NOM_GROUP" />
+                <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+                <ScalarProperty Name="ID_TYPE_RESSOURCE" ColumnName="ID_TYPE_RESSOURCE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MyAirportModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACHE_CODE_ALARME">
+            <EntityTypeMapping TypeName="MyAirportModel.TACHE_CODE_ALARME">
+              <MappingFragment StoreEntitySet="TACHE_CODE_ALARME">
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACHE_ENTREE_TRI">
+            <EntityTypeMapping TypeName="MyAirportModel.TACHE_ENTREE_TRI">
+              <MappingFragment StoreEntitySet="TACHE_ENTREE_TRI">
+                <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+                <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+                <ScalarProperty Name="ID_RES_IN" ColumnName="ID_RES_IN" />
+                <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+                <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+                <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+                <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+                <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+                <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+                <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACHE_GLOB">
+            <EntityTypeMapping TypeName="MyAirportModel.TACHE_GLOB">
+              <MappingFragment StoreEntitySet="TACHE_GLOB">
+                <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+                <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+                <ScalarProperty Name="TYP_TAC_GLOB" ColumnName="TYP_TAC_GLOB" />
+                <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+                <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+                <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+                <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+                <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+                <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+                <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACHE_GRP_BAGS">
+            <EntityTypeMapping TypeName="MyAirportModel.TACHE_GRP_BAGS">
+              <MappingFragment StoreEntitySet="TACHE_GRP_BAGS">
+                <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+                <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+                <ScalarProperty Name="ID_MOD_SATISFACT" ColumnName="ID_MOD_SATISFACT" />
+                <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+                <ScalarProperty Name="STATUT_TEMPOREL" ColumnName="STATUT_TEMPOREL" />
+                <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+                <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+                <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+                <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+                <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+                <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+                <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+                <ScalarProperty Name="NB_CONTAINERS" ColumnName="NB_CONTAINERS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACHE_SEC_ROUT">
+            <EntityTypeMapping TypeName="MyAirportModel.TACHE_SEC_ROUT">
+              <MappingFragment StoreEntitySet="TACHE_SEC_ROUT">
+                <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+                <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+                <ScalarProperty Name="TYP_SECOURS" ColumnName="TYP_SECOURS" />
+                <ScalarProperty Name="TRI_SECOURS" ColumnName="TRI_SECOURS" />
+                <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+                <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+                <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+                <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+                <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+                <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+                <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLs">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL">
+              <MappingFragment StoreEntitySet="VOL">
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="ID_CIE" ColumnName="ID_CIE" />
+                <ScalarProperty Name="ID_CEC" ColumnName="ID_CEC" />
+                <ScalarProperty Name="LIG" ColumnName="LIG" />
+                <ScalarProperty Name="JEX" ColumnName="JEX" />
+                <ScalarProperty Name="QRF" ColumnName="QRF" />
+                <ScalarProperty Name="DHC" ColumnName="DHC" />
+                <ScalarProperty Name="SPK" ColumnName="SPK" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="DOA" ColumnName="DOA" />
+                <ScalarProperty Name="PKG" ColumnName="PKG" />
+                <ScalarProperty Name="TDH" ColumnName="TDH" />
+                <ScalarProperty Name="NAT" ColumnName="NAT" />
+                <ScalarProperty Name="REP" ColumnName="REP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOL_ARRIVE">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL_ARRIVE">
+              <MappingFragment StoreEntitySet="VOL_ARRIVE">
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="AER_ORIGINE" ColumnName="AER_ORIGINE" />
+                <ScalarProperty Name="CTRL_SUR_OK" ColumnName="CTRL_SUR_OK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOL_DEPART">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL_DEPART">
+              <MappingFragment StoreEntitySet="VOL_DEPART">
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+                <ScalarProperty Name="SHA" ColumnName="SHA" />
+                <ScalarProperty Name="CRE" ColumnName="CRE" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="JUR" ColumnName="JUR" />
+                <ScalarProperty Name="SCT" ColumnName="SCT" />
+                <ScalarProperty Name="AVC" ColumnName="AVC" />
+                <ScalarProperty Name="IMM" ColumnName="IMM" />
+                <ScalarProperty Name="PAX" ColumnName="PAX" />
+                <ScalarProperty Name="MAS" ColumnName="MAS" />
+                <ScalarProperty Name="DES" ColumnName="DES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOL_ENRGT_SUR">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL_ENRGT_SUR">
+              <MappingFragment StoreEntitySet="VOL_ENRGT_SUR">
+                <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="DEBUT" ColumnName="DEBUT" />
+                <ScalarProperty Name="FIN" ColumnName="FIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOL_ITINERAIRE">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL_ITINERAIRE">
+              <MappingFragment StoreEntitySet="VOL_ITINERAIRE">
+                <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+                <ScalarProperty Name="CODE_VILLE" ColumnName="CODE_VILLE" />
+                <ScalarProperty Name="ORDRE_ESCALE" ColumnName="ORDRE_ESCALE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOL_TYP_AVION">
+            <EntityTypeMapping TypeName="MyAirportModel.VOL_TYP_AVION">
+              <MappingFragment StoreEntitySet="VOL_TYP_AVION">
+                <ScalarProperty Name="ID_TYP_AVION" ColumnName="ID_TYP_AVION" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="LIB" ColumnName="LIB" />
+                <ScalarProperty Name="PAX_STD" ColumnName="PAX_STD" />
+                <ScalarProperty Name="PAX_MAX" ColumnName="PAX_MAX" />
+                <ScalarProperty Name="OBS" ColumnName="OBS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RESSOURCEs">
+            <EntityTypeMapping TypeName="MyAirportModel.RESSOURCE">
+              <MappingFragment StoreEntitySet="RESSOURCE">
+                <ScalarProperty Name="ID_RESSOURCE" ColumnName="ID_RESSOURCE" />
+                <ScalarProperty Name="ID_GROUP_TRI" ColumnName="ID_GROUP_TRI" />
+                <ScalarProperty Name="ID_RESSOURCE_GROUP" ColumnName="ID_RESSOURCE_GROUP" />
+                <ScalarProperty Name="ID_LOCALISATION" ColumnName="ID_LOCALISATION" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BAGAGE_A_POUR_PARTICULARITE" TypeName="MyAirportModel.BAGAGE_A_POUR_PARTICULARITE" StoreEntitySet="BAGAGE_A_POUR_PARTICULARITE">
+            <EndProperty Name="BAGAGE">
+              <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+            </EndProperty>
+            <EndProperty Name="BAGAGE_PARTICULARITE">
+              <ScalarProperty Name="ID_PART" ColumnName="ID_PARTICULARITE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MyAirportModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MyAirportModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MyAirportModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MyAirportModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MyAirportModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MyAirportModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MyAirportModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
