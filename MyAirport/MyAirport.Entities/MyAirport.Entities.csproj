@@ -49,7 +49,6 @@
     <Compile Include="Parametres.cs" />
     <Compile Include="PersoFaultException.cs" />
     <Compile Include="VolCriteres.cs" />
-    <Compile Include="IAirportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VolDefinition.cs" />
   </ItemGroup>

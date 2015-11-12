@@ -13,7 +13,7 @@ namespace HostMyAirport
         public Form1()
         {
             InitializeComponent();
-            var type = typeof (AirportService);
+            var type = typeof (MyAirportService);
             host = new ServiceHost(type);
             label2.Text = host.State.ToString();
 
@@ -52,7 +52,7 @@ namespace HostMyAirport
         private void button2_Click(object sender, EventArgs e)
         {
             GC.Collect();
-            label5.Text = AirportService.NbInstance.ToString();
+            label5.Text = MyAirportService.NbInstance.ToString();
         }
     }
 }

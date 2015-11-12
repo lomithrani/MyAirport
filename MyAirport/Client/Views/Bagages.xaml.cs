@@ -1,26 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Client.ServiceReference2;
-
 
 namespace Client.Views
 {
     /// <summary>
-    /// Logique d'interaction pour Bagages.xaml
+    ///     Logique d'interaction pour Bagages.xaml
     /// </summary>
     public partial class Bagages : Page
     {
@@ -45,9 +32,6 @@ namespace Client.Views
                 TextBoxLigne.Text = vol.Ligne;
                 TextBoxCompagnie.Text = vol.CIE;
             }
-            
-
-          
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -68,7 +52,7 @@ namespace Client.Views
             int.TryParse(TextBoxIdVol.Text, out idVol);
             baggage.IdVol = idVol;
 
-            var id =  myAirportService.CreerBaggage(baggage);
+            var id = myAirportService.CreerBaggage(baggage);
 
             if (id != -1)
             {
@@ -79,7 +63,6 @@ namespace Client.Views
             {
                 MessageBox.Show("Failed to save");
             }
-           
         }
     }
 }
