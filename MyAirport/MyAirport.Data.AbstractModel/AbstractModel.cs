@@ -24,5 +24,6 @@ namespace MyAirport.Data
         public abstract BagageDefinition GetBagageWithIata(string iata);
         public abstract List<BagageDefinition> GetBagages(BagageCriteres criteres);
         public abstract int SetBaggage(BagageDefinition baggage);
+        
     }
 }
