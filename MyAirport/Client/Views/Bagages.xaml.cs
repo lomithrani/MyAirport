@@ -31,6 +31,11 @@ namespace Client.Views
                 var vol = myAirportService.DetailVol2(baggageDefinition.IdVol ?? default(int));
                 TextBoxLigne.Text = vol.Ligne;
                 TextBoxCompagnie.Text = vol.CIE;
+                AddBaggageButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                AddBaggageButton.Visibility = Visibility.Visible;
             }
         }
 
