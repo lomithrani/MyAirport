@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyAirportModelStoreContainer" CdmEntityContainer="MyAirportEntities">
+    <EntitySetMapping Name="AEROPORTs">
+      <EntityTypeMapping TypeName="MyAirportModel.AEROPORT">
+        <MappingFragment StoreEntitySet="AEROPORT">
+          <ScalarProperty Name="ID_AEROPORT" ColumnName="ID_AEROPORT" />
+          <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="LONG_COURRIER" ColumnName="LONG_COURRIER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSOC_CS_CLA">
+      <EntityTypeMapping TypeName="MyAirportModel.ASSOC_CS_CLA">
+        <MappingFragment StoreEntitySet="ASSOC_CS_CLA">
+          <ScalarProperty Name="ID_MOD_CLA" ColumnName="ID_MOD_CLA" />
+          <ScalarProperty Name="ID_CRI_SELECTION" ColumnName="ID_CRI_SELECTION" />
+          <ScalarProperty Name="ORDRE_TEMPOREL" ColumnName="ORDRE_TEMPOREL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSOC_EMP_CLA">
+      <EntityTypeMapping TypeName="MyAirportModel.ASSOC_EMP_CLA">
+        <MappingFragment StoreEntitySet="ASSOC_EMP_CLA">
+          <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+          <ScalarProperty Name="ID_MOD_CLA" ColumnName="ID_MOD_CLA" />
+          <ScalarProperty Name="ORDRE_TEMPOREL" ColumnName="ORDRE_TEMPOREL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGEs">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE">
+        <MappingFragment StoreEntitySet="BAGAGE">
+          <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+          <ScalarProperty Name="ORIGINE_CREATION" ColumnName="ORIGINE_CREATION" />
+          <ScalarProperty Name="DATE_CREATION" ColumnName="DATE_CREATION" />
+          <ScalarProperty Name="CLASSE" ColumnName="CLASSE" />
+          <ScalarProperty Name="PRIORITAIRE" ColumnName="PRIORITAIRE" />
+          <ScalarProperty Name="STA" ColumnName="STA" />
+          <ScalarProperty Name="LOCAL_TRANFERT" ColumnName="LOCAL_TRANFERT" />
+          <ScalarProperty Name="NSUR" ColumnName="NSUR" />
+          <ScalarProperty Name="SSUR" ColumnName="SSUR" />
+          <ScalarProperty Name="ISUR" ColumnName="ISUR" />
+          <ScalarProperty Name="TSUR" ColumnName="TSUR" />
+          <ScalarProperty Name="GSUR" ColumnName="GSUR" />
+          <ScalarProperty Name="CSUR" ColumnName="CSUR" />
+          <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+          <ScalarProperty Name="ESCALE" ColumnName="ESCALE" />
+          <ScalarProperty Name="EMB" ColumnName="EMB" />
+          <ScalarProperty Name="RECOLE" ColumnName="RECOLE" />
+          <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+          <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+          <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+          <ScalarProperty Name="CONTINUATION" ColumnName="CONTINUATION" />
+          <ScalarProperty Name="STATUT_EJECTION" ColumnName="STATUT_EJECTION" />
+          <ScalarProperty Name="STATUT_TEMPOREL" ColumnName="STATUT_TEMPOREL" />
+          <ScalarProperty Name="DCS_EMETTEUR" ColumnName="DCS_EMETTEUR" />
+          <ScalarProperty Name="ORIGINE_SAFIR" ColumnName="ORIGINE_SAFIR" />
+          <ScalarProperty Name="EN_CONTINUATION" ColumnName="EN_CONTINUATION" />
+          <ScalarProperty Name="EN_TRANSFERT" ColumnName="EN_TRANSFERT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGE_OCCURENCE">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_OCCURENCE">
+        <MappingFragment StoreEntitySet="BAGAGE_OCCURENCE">
+          <ScalarProperty Name="ID_OCCURENCE" ColumnName="ID_OCCURENCE" />
+          <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+          <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+          <ScalarProperty Name="HORODATE_ENTREE_TRI" ColumnName="HORODATE_ENTREE_TRI" />
+          <ScalarProperty Name="DESTINATION1" ColumnName="DESTINATION1" />
+          <ScalarProperty Name="DESTINATION4" ColumnName="DESTINATION4" />
+          <ScalarProperty Name="STATUT_EJEC" ColumnName="STATUT_EJEC" />
+          <ScalarProperty Name="INDIC_SECTOR" ColumnName="INDIC_SECTOR" />
+          <ScalarProperty Name="NUMERO_OCCURENCE" ColumnName="NUMERO_OCCURENCE" />
+          <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+          <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+          <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+          <ScalarProperty Name="ENCOURS" ColumnName="ENCOURS" />
+          <ScalarProperty Name="DIRECTIONENCOURS" ColumnName="DIRECTIONENCOURS" />
+          <ScalarProperty Name="STATUT_SURETE_EJECTION" ColumnName="STATUT_SURETE_EJECTION" />
+          <ScalarProperty Name="TYPE_TACHE" ColumnName="TYPE_TACHE" />
+          <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+          <ScalarProperty Name="DERNIERE_LOC_CONNUE" ColumnName="DERNIERE_LOC_CONNUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGE_PARTICULARITE">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_PARTICULARITE">
+        <MappingFragment StoreEntitySet="BAGAGE_PARTICULARITE">
+          <ScalarProperty Name="ID_PART" ColumnName="ID_PART" />
+          <ScalarProperty Name="PARTICULARITE" ColumnName="PARTICULARITE" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGE_TRACE">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_TRACE">
+        <MappingFragment StoreEntitySet="BAGAGE_TRACE">
+          <ScalarProperty Name="ID_TRACE" ColumnName="ID_TRACE" />
+          <ScalarProperty Name="ID_OCCURENCE" ColumnName="ID_OCCURENCE" />
+          <ScalarProperty Name="HOROADATE" ColumnName="HOROADATE" />
+          <ScalarProperty Name="ID_LOCALISATION" ColumnName="ID_LOCALISATION" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="STATUT" ColumnName="STATUT" />
+          <ScalarProperty Name="INFO" ColumnName="INFO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGE_VOL_APPORT">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_VOL_APPORT">
+        <MappingFragment StoreEntitySet="BAGAGE_VOL_APPORT">
+          <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+          <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+          <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+          <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+          <ScalarProperty Name="AEROPORT" ColumnName="AEROPORT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGAGE_VOL_CNT">
+      <EntityTypeMapping TypeName="MyAirportModel.BAGAGE_VOL_CNT">
+        <MappingFragment StoreEntitySet="BAGAGE_VOL_CNT">
+          <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+          <ScalarProperty Name="COMPAGNIE" ColumnName="COMPAGNIE" />
+          <ScalarProperty Name="LIGNE" ColumnName="LIGNE" />
+          <ScalarProperty Name="JOUR_EXPLOITATION" ColumnName="JOUR_EXPLOITATION" />
+          <ScalarProperty Name="AEROPORT" ColumnName="AEROPORT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPAGNIEs">
+      <EntityTypeMapping TypeName="MyAirportModel.COMPAGNIE">
+        <MappingFragment StoreEntitySet="COMPAGNIE">
+          <ScalarProperty Name="ID_COMPAGNIE" ColumnName="ID_COMPAGNIE" />
+          <ScalarProperty Name="CODE_IATA" ColumnName="CODE_IATA" />
+          <ScalarProperty Name="NUMERO_ASSISTANT" ColumnName="NUMERO_ASSISTANT" />
+          <ScalarProperty Name="CODE_OACI" ColumnName="CODE_OACI" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+          <ScalarProperty Name="DATE_OBSOLETE" ColumnName="DATE_OBSOLETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPAGNIE_CLASSE">
+      <EntityTypeMapping TypeName="MyAirportModel.COMPAGNIE_CLASSE">
+        <MappingFragment StoreEntitySet="COMPAGNIE_CLASSE">
+          <ScalarProperty Name="ID_COMPAGNIE_CLASSE" ColumnName="ID_COMPAGNIE_CLASSE" />
+          <ScalarProperty Name="ID_COMPAGNIE" ColumnName="ID_COMPAGNIE" />
+          <ScalarProperty Name="CLASSE" ColumnName="CLASSE" />
+          <ScalarProperty Name="PRIORITAIRE" ColumnName="PRIORITAIRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRI_SELECTION">
+      <EntityTypeMapping TypeName="MyAirportModel.CRI_SELECTION">
+        <MappingFragment StoreEntitySet="CRI_SELECTION">
+          <ScalarProperty Name="ID_CRI_SELECTION" ColumnName="ID_CRI_SELECTION" />
+          <ScalarProperty Name="ID_MOD_CHR" ColumnName="ID_MOD_CHR" />
+          <ScalarProperty Name="ID_MOD_SATISFACT" ColumnName="ID_MOD_SATISFACT" />
+          <ScalarProperty Name="TYPE_MODELE" ColumnName="TYPE_MODELE" />
+          <ScalarProperty Name="EXPRESSION" ColumnName="EXPRESSION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPORTs">
+      <EntityTypeMapping TypeName="MyAirportModel.EMPORT">
+        <MappingFragment StoreEntitySet="EMPORT">
+          <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+          <ScalarProperty Name="ID_CHRONOGRAMME" ColumnName="ID_CHRONOGRAMME" />
+          <ScalarProperty Name="NB_BAG_CALCULE" ColumnName="NB_BAG_CALCULE" />
+          <ScalarProperty Name="D_ANT" ColumnName="D_ANT" />
+          <ScalarProperty Name="D_TPS" ColumnName="D_TPS" />
+          <ScalarProperty Name="D_DER" ColumnName="D_DER" />
+          <ScalarProperty Name="D_RAT" ColumnName="D_RAT" />
+          <ScalarProperty Name="F_RAT" ColumnName="F_RAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GROUP_TRI">
+      <EntityTypeMapping TypeName="MyAirportModel.GROUP_TRI">
+        <MappingFragment StoreEntitySet="GROUP_TRI">
+          <ScalarProperty Name="ID_GROUP_TRI" ColumnName="ID_GROUP_TRI" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODEL_CHRONOGRAMME">
+      <EntityTypeMapping TypeName="MyAirportModel.MODEL_CHRONOGRAMME">
+        <MappingFragment StoreEntitySet="MODEL_CHRONOGRAMME">
+          <ScalarProperty Name="ID_CHRONOGRAMME" ColumnName="ID_CHRONOGRAMME" />
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+          <ScalarProperty Name="HDEPREF" ColumnName="HDEPREF" />
+          <ScalarProperty Name="DANT" ColumnName="DANT" />
+          <ScalarProperty Name="DOUVTRI" ColumnName="DOUVTRI" />
+          <ScalarProperty Name="DFTRI" ColumnName="DFTRI" />
+          <ScalarProperty Name="DFDM" ColumnName="DFDM" />
+          <ScalarProperty Name="DRATES" ColumnName="DRATES" />
+          <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODEL_CLASSEMENT">
+      <EntityTypeMapping TypeName="MyAirportModel.MODEL_CLASSEMENT">
+        <MappingFragment StoreEntitySet="MODEL_CLASSEMENT">
+          <ScalarProperty Name="ID_CLASSEMENT" ColumnName="ID_CLASSEMENT" />
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+          <ScalarProperty Name="EXPRESSION" ColumnName="EXPRESSION" />
+          <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODEL_SATISFACTION">
+      <EntityTypeMapping TypeName="MyAirportModel.MODEL_SATISFACTION">
+        <MappingFragment StoreEntitySet="MODEL_SATISFACTION">
+          <ScalarProperty Name="ID_SATISFACTION" ColumnName="ID_SATISFACTION" />
+          <ScalarProperty Name="LIBELLE" ColumnName="LIBELLE" />
+          <ScalarProperty Name="OBSOLETE" ColumnName="OBSOLETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARK_AVION">
+      <EntityTypeMapping TypeName="MyAirportModel.PARK_AVION">
+        <MappingFragment StoreEntitySet="PARK_AVION">
+          <ScalarProperty Name="ID_PARKING" ColumnName="ID_PARKING" />
+          <ScalarProperty Name="CODE_PARKING" ColumnName="CODE_PARKING" />
+          <ScalarProperty Name="ID_SARIA_PARKING" ColumnName="ID_SARIA_PARKING" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESSOURCE_GROUP">
+      <EntityTypeMapping TypeName="MyAirportModel.RESSOURCE_GROUP">
+        <MappingFragment StoreEntitySet="RESSOURCE_GROUP">
+          <ScalarProperty Name="ID_GROUP" ColumnName="ID_GROUP" />
+          <ScalarProperty Name="NOM_GROUP" ColumnName="NOM_GROUP" />
+          <ScalarProperty Name="OBSERVATION" ColumnName="OBSERVATION" />
+          <ScalarProperty Name="ID_TYPE_RESSOURCE" ColumnName="ID_TYPE_RESSOURCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MyAirportModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TACHE_CODE_ALARME">
+      <EntityTypeMapping TypeName="MyAirportModel.TACHE_CODE_ALARME">
+        <MappingFragment StoreEntitySet="TACHE_CODE_ALARME">
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TACHE_ENTREE_TRI">
+      <EntityTypeMapping TypeName="MyAirportModel.TACHE_ENTREE_TRI">
+        <MappingFragment StoreEntitySet="TACHE_ENTREE_TRI">
+          <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+          <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+          <ScalarProperty Name="ID_RES_IN" ColumnName="ID_RES_IN" />
+          <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+          <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+          <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+          <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+          <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+          <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+          <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TACHE_GLOB">
+      <EntityTypeMapping TypeName="MyAirportModel.TACHE_GLOB">
+        <MappingFragment StoreEntitySet="TACHE_GLOB">
+          <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+          <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+          <ScalarProperty Name="TYP_TAC_GLOB" ColumnName="TYP_TAC_GLOB" />
+          <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+          <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+          <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+          <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+          <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+          <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+          <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TACHE_GRP_BAGS">
+      <EntityTypeMapping TypeName="MyAirportModel.TACHE_GRP_BAGS">
+        <MappingFragment StoreEntitySet="TACHE_GRP_BAGS">
+          <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+          <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+          <ScalarProperty Name="ID_MOD_SATISFACT" ColumnName="ID_MOD_SATISFACT" />
+          <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+          <ScalarProperty Name="STATUT_TEMPOREL" ColumnName="STATUT_TEMPOREL" />
+          <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+          <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+          <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+          <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+          <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+          <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+          <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+          <ScalarProperty Name="NB_CONTAINERS" ColumnName="NB_CONTAINERS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TACHE_SEC_ROUT">
+      <EntityTypeMapping TypeName="MyAirportModel.TACHE_SEC_ROUT">
+        <MappingFragment StoreEntitySet="TACHE_SEC_ROUT">
+          <ScalarProperty Name="ID_TACHE" ColumnName="ID_TACHE" />
+          <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+          <ScalarProperty Name="TYP_SECOURS" ColumnName="TYP_SECOURS" />
+          <ScalarProperty Name="TRI_SECOURS" ColumnName="TRI_SECOURS" />
+          <ScalarProperty Name="TDEB" ColumnName="TDEB" />
+          <ScalarProperty Name="TFIN" ColumnName="TFIN" />
+          <ScalarProperty Name="NIV_ALA" ColumnName="NIV_ALA" />
+          <ScalarProperty Name="COD_ALA" ColumnName="COD_ALA" />
+          <ScalarProperty Name="CAR_CLASS" ColumnName="CAR_CLASS" />
+          <ScalarProperty Name="ID_TACHE_MERE" ColumnName="ID_TACHE_MERE" />
+          <ScalarProperty Name="NB_BAGS_EN_COURS" ColumnName="NB_BAGS_EN_COURS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOLs">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL">
+        <MappingFragment StoreEntitySet="VOL">
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="ID_CIE" ColumnName="ID_CIE" />
+          <ScalarProperty Name="ID_CEC" ColumnName="ID_CEC" />
+          <ScalarProperty Name="LIG" ColumnName="LIG" />
+          <ScalarProperty Name="JEX" ColumnName="JEX" />
+          <ScalarProperty Name="QRF" ColumnName="QRF" />
+          <ScalarProperty Name="DHC" ColumnName="DHC" />
+          <ScalarProperty Name="SPK" ColumnName="SPK" />
+          <ScalarProperty Name="STA" ColumnName="STA" />
+          <ScalarProperty Name="DOA" ColumnName="DOA" />
+          <ScalarProperty Name="PKG" ColumnName="PKG" />
+          <ScalarProperty Name="TDH" ColumnName="TDH" />
+          <ScalarProperty Name="NAT" ColumnName="NAT" />
+          <ScalarProperty Name="REP" ColumnName="REP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOL_ARRIVE">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL_ARRIVE">
+        <MappingFragment StoreEntitySet="VOL_ARRIVE">
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="AER_ORIGINE" ColumnName="AER_ORIGINE" />
+          <ScalarProperty Name="CTRL_SUR_OK" ColumnName="CTRL_SUR_OK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOL_DEPART">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL_DEPART">
+        <MappingFragment StoreEntitySet="VOL_DEPART">
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="ID_EMPORT" ColumnName="ID_EMPORT" />
+          <ScalarProperty Name="SHA" ColumnName="SHA" />
+          <ScalarProperty Name="CRE" ColumnName="CRE" />
+          <ScalarProperty Name="TYP" ColumnName="TYP" />
+          <ScalarProperty Name="JUR" ColumnName="JUR" />
+          <ScalarProperty Name="SCT" ColumnName="SCT" />
+          <ScalarProperty Name="AVC" ColumnName="AVC" />
+          <ScalarProperty Name="IMM" ColumnName="IMM" />
+          <ScalarProperty Name="PAX" ColumnName="PAX" />
+          <ScalarProperty Name="MAS" ColumnName="MAS" />
+          <ScalarProperty Name="DES" ColumnName="DES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOL_ENRGT_SUR">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL_ENRGT_SUR">
+        <MappingFragment StoreEntitySet="VOL_ENRGT_SUR">
+          <ScalarProperty Name="ID_RES" ColumnName="ID_RES" />
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="DEBUT" ColumnName="DEBUT" />
+          <ScalarProperty Name="FIN" ColumnName="FIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOL_ITINERAIRE">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL_ITINERAIRE">
+        <MappingFragment StoreEntitySet="VOL_ITINERAIRE">
+          <ScalarProperty Name="ID_VOL" ColumnName="ID_VOL" />
+          <ScalarProperty Name="CODE_VILLE" ColumnName="CODE_VILLE" />
+          <ScalarProperty Name="ORDRE_ESCALE" ColumnName="ORDRE_ESCALE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VOL_TYP_AVION">
+      <EntityTypeMapping TypeName="MyAirportModel.VOL_TYP_AVION">
+        <MappingFragment StoreEntitySet="VOL_TYP_AVION">
+          <ScalarProperty Name="ID_TYP_AVION" ColumnName="ID_TYP_AVION" />
+          <ScalarProperty Name="TYP" ColumnName="TYP" />
+          <ScalarProperty Name="LIB" ColumnName="LIB" />
+          <ScalarProperty Name="PAX_STD" ColumnName="PAX_STD" />
+          <ScalarProperty Name="PAX_MAX" ColumnName="PAX_MAX" />
+          <ScalarProperty Name="OBS" ColumnName="OBS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESSOURCEs">
+      <EntityTypeMapping TypeName="MyAirportModel.RESSOURCE">
+        <MappingFragment StoreEntitySet="RESSOURCE">
+          <ScalarProperty Name="ID_RESSOURCE" ColumnName="ID_RESSOURCE" />
+          <ScalarProperty Name="ID_GROUP_TRI" ColumnName="ID_GROUP_TRI" />
+          <ScalarProperty Name="ID_RESSOURCE_GROUP" ColumnName="ID_RESSOURCE_GROUP" />
+          <ScalarProperty Name="ID_LOCALISATION" ColumnName="ID_LOCALISATION" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="CODE" ColumnName="CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BAGAGE_A_POUR_PARTICULARITE" TypeName="MyAirportModel.BAGAGE_A_POUR_PARTICULARITE" StoreEntitySet="BAGAGE_A_POUR_PARTICULARITE">
+      <EndProperty Name="BAGAGE">
+        <ScalarProperty Name="ID_BAGAGE" ColumnName="ID_BAGAGE" />
+      </EndProperty>
+      <EndProperty Name="BAGAGE_PARTICULARITE">
+        <ScalarProperty Name="ID_PART" ColumnName="ID_PARTICULARITE" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MyAirportModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MyAirportModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MyAirportModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MyAirportModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MyAirportModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MyAirportModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MyAirportModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

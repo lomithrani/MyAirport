@@ -1,0 +1,15 @@
+c:\users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.dll
+c:\users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
+c:\users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache
+c:\users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
+c:\users\cagnetc\documents\visual studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
+C:\Users\DevSi\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.dll
+C:\Users\DevSi\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
+C:\Users\DevSi\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache
+C:\Users\DevSi\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
+C:\Users\DevSi\Documents\Visual Studio 2013\Projects\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
+C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.dll
+C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
+C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
+C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
+C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache
