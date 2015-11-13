@@ -65,6 +65,7 @@ namespace MyAirport.Service
         BagageDefinition RechercherBagagesParIata(string iata);
 
         [OperationContract]
+        [FaultContract(typeof(PersoFaultException))]
         int CreerBaggage(BagageDefinition baggage);
 
         #endregion

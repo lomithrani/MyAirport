@@ -44,6 +44,7 @@ namespace MyAirport.Data.ModelEntityFramework
                 .ForMember(dest => dest.CODE_IATA, opt => opt.MapFrom(source => source.CodeIATA.ToString()))
                 .ForMember(source => source.DATE_CREATION, opt => opt.MapFrom(source => source.DateCreation))
                 .ForMember(dest => dest.ID_VOL, opt => opt.MapFrom(source => source.IdVol));
+
         }
 
         public class IataResolver : ValueResolver<BAGAGE, long>

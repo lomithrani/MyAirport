@@ -12,4 +12,3 @@ C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\bin\Debug\MyA
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
-C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache

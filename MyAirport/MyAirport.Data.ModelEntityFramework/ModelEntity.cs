@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using AutoMapper;
 using MyAirport.Entities;
-
 
 namespace MyAirport.Data.ModelEntityFramework
 {
@@ -48,7 +48,6 @@ namespace MyAirport.Data.ModelEntityFramework
                 }
                 catch (Exception)
                 {
-                    
                     //to do throw exception
                 }
 
@@ -69,7 +68,22 @@ namespace MyAirport.Data.ModelEntityFramework
             using (var db = new MyAirportEntities())
             {
                 var baggageDal = Mapper.Map<BAGAGE>(baggage);
-
+                VOL vol=null;
+                try
+                {
+                    vol = db.VOLs.Single(v => v.ID_VOL == baggageDal.ID_VOL);
+                }
+                catch (Exception ex)
+                {
+                    throw new FaultException<PersoFaultException>(new PersoFaultException
+                    {
+                        Message = "Vol introuvable"
+                    });
+                }
+              
+                baggageDal.COMPAGNIE = vol?.COMPAGNIE1.CODE_IATA;
+                baggageDal.LIGNE = vol?.LIG;
+                baggageDal.ORIGINE_CREATION = "D";
                 db.BAGAGEs.Add(baggageDal);
 
                 try
@@ -81,13 +95,17 @@ namespace MyAirport.Data.ModelEntityFramework
                 }
                 catch (Exception ex)
                 {
-                    // ignored
+                    throw new FaultException<PersoFaultException>(new PersoFaultException
+                    {
+                        Message = "Sauvegarde Impossible"
+                    });
+
                 }
             }
             return returnValue;
         }
 
-     
+
         public override List<VolDefinition> GetVols(VolCriteres criteres)
         {
             throw new NotImplementedException();

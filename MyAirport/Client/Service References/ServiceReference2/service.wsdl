@@ -98,6 +98,9 @@
   <wsdl:message name="IMyAirportService_CreerBaggage_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreerBaggageResponse" />
   </wsdl:message>
+  <wsdl:message name="IMyAirportService_CreerBaggage_PersoFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q2:PersoFaultException" />
+  </wsdl:message>
   <wsdl:portType name="IMyAirportService">
     <wsdl:operation name="TestFaultException">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/TestFaultException" message="tns:IMyAirportService_TestFaultException_InputMessage" />
@@ -158,6 +161,7 @@
     <wsdl:operation name="CreerBaggage">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggage" message="tns:IMyAirportService_CreerBaggage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggageResponse" message="tns:IMyAirportService_CreerBaggage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggagePersoFaultExceptionFault" name="PersoFaultExceptionFault" message="tns:IMyAirportService_CreerBaggage_PersoFaultExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMyAirportService" type="tns:IMyAirportService">
@@ -296,6 +300,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="PersoFaultExceptionFault">
+        <soap:fault use="literal" name="PersoFaultExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="MyAirportService">

@@ -330,23 +330,12 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
         #region Gestion des vols
         public override VolDefinition GetVol(int idVol)
         {
-            foreach (VolDefinition v in this.vols)
-            {
-                if (v.Id == idVol)
-                    return v;
-            }
-            return null;
+            return vols.FirstOrDefault(v => v.Id == idVol);
         }
 
         public override List<VolDefinition> GetVols(VolCriteres criteres)
         {
-            List<VolDefinition> res = new List<VolDefinition>();
-            foreach (VolDefinition v in this.vols)
-            {
-                if (ValideCritere(v, criteres))
-                    res.Add(v);
-            }
-            return res;
+            return vols.Where(v => ValideCritere(v, criteres)).ToList();
         }
 
         private bool ValideCritere(VolDefinition vol, VolCriteres criteres)
@@ -375,12 +364,7 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
         #region Bagages
         public override BagageDefinition GetBagage(int idBagage)
         {
-            foreach (BagageDefinition b in this.bagages)
-            {
-                if (b.Id == idBagage)
-                    return b;
-            }
-            return null;
+            return bagages.FirstOrDefault(b => b.Id == idBagage);
         }
 
         public override BagageDefinition GetBagageWithIata(string iata)
@@ -390,13 +374,7 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
 
         public override List<BagageDefinition> GetBagages(BagageCriteres criteres)
         {
-            List<BagageDefinition> res = new List<BagageDefinition>();
-            foreach (BagageDefinition b in this.bagages)
-            {
-                if (ValideCritere(b, criteres))
-                    res.Add(b);
-            }
-            return res;
+            return bagages.Where(b => ValideCritere(b, criteres)).ToList();
         }
 
         public override int SetBaggage(BagageDefinition baggage)

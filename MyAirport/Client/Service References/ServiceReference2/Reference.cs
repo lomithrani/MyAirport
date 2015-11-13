@@ -597,6 +597,7 @@ namespace Client.ServiceReference2 {
         System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition> RechercherBagagesParIataAsync(string iata);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/CreerBaggage", ReplyAction="http://tempuri.org/IMyAirportService/CreerBaggageResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Client.ServiceReference2.PersoFaultException), Action="http://tempuri.org/IMyAirportService/CreerBaggagePersoFaultExceptionFault", Name="PersoFaultException", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
         int CreerBaggage(Client.ServiceReference2.BagageDefinition baggage);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/CreerBaggage", ReplyAction="http://tempuri.org/IMyAirportService/CreerBaggageResponse")]

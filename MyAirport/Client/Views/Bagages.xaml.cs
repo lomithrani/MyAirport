@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using Client.ServiceReference2;
@@ -31,10 +32,13 @@ namespace Client.Views
                 var vol = myAirportService.DetailVol2(baggageDefinition.IdVol ?? default(int));
                 TextBoxLigne.Text = vol.Ligne;
                 TextBoxCompagnie.Text = vol.CIE;
+                TextBoxCompagnie.IsEnabled = false;
+                TextBoxLigne.IsEnabled = false;
                 AddBaggageButton.Visibility = Visibility.Hidden;
             }
             else
             {
+                TextBoxIdVol.IsEnabled = true;
                 AddBaggageButton.Visibility = Visibility.Visible;
             }
         }
@@ -57,16 +61,16 @@ namespace Client.Views
             int.TryParse(TextBoxIdVol.Text, out idVol);
             baggage.IdVol = idVol;
 
-            var id = myAirportService.CreerBaggage(baggage);
-
-            if (id != -1)
+            try
             {
+                var id = myAirportService.CreerBaggage(baggage);
+
                 MessageBox.Show("Success");
                 TextBoxIdBaggage.Text = id.ToString();
             }
-            else
+            catch (FaultException<PersoFaultException> fault)
             {
-                MessageBox.Show("Failed to save");
+                MessageBox.Show(fault.Message);
             }
         }
     }

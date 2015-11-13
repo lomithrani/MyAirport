@@ -16,4 +16,3 @@ C:\Users\Louis\Source\Repos\MyAirport\MyAirport\Client\obj\Debug\Client.Properti
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\Client\obj\Debug\Client.csproj.GenerateResource.Cache
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\Client\obj\Debug\Client.exe
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\Client\obj\Debug\Client.pdb
-C:\Users\Louis\Source\Repos\MyAirport\MyAirport\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
