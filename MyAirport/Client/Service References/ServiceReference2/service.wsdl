@@ -92,6 +92,9 @@
   <wsdl:message name="IMyAirportService_RechercherBagagesParIata_OutputMessage">
     <wsdl:part name="parameters" element="tns:RechercherBagagesParIataResponse" />
   </wsdl:message>
+  <wsdl:message name="IMyAirportService_RechercherBagagesParIata_MultipleBaggageExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q2:MultipleBaggageException" />
+  </wsdl:message>
   <wsdl:message name="IMyAirportService_CreerBaggage_InputMessage">
     <wsdl:part name="parameters" element="tns:CreerBaggage" />
   </wsdl:message>
@@ -99,7 +102,7 @@
     <wsdl:part name="parameters" element="tns:CreerBaggageResponse" />
   </wsdl:message>
   <wsdl:message name="IMyAirportService_CreerBaggage_PersoFaultExceptionFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q2:PersoFaultException" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/MyAirport.Entities" name="detail" element="q3:PersoFaultException" />
   </wsdl:message>
   <wsdl:portType name="IMyAirportService">
     <wsdl:operation name="TestFaultException">
@@ -157,6 +160,7 @@
     <wsdl:operation name="RechercherBagagesParIata">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIata" message="tns:IMyAirportService_RechercherBagagesParIata_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIataResponse" message="tns:IMyAirportService_RechercherBagagesParIata_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIataMultipleBaggageExceptionFault" name="MultipleBaggageExceptionFault" message="tns:IMyAirportService_RechercherBagagesParIata_MultipleBaggageExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreerBaggage">
       <wsdl:input wsaw:Action="http://tempuri.org/IMyAirportService/CreerBaggage" message="tns:IMyAirportService_CreerBaggage_InputMessage" />
@@ -291,6 +295,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MultipleBaggageExceptionFault">
+        <soap:fault use="literal" name="MultipleBaggageExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="CreerBaggage">
       <soap:operation soapAction="http://tempuri.org/IMyAirportService/CreerBaggage" style="document" />

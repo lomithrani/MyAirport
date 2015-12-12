@@ -19,3 +19,10 @@ C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data.AbstractModel\bin
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.csprojResolveAssemblyReference.cache
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.dll
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.pdb
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\bin\Debug\MyAirport.Data.AbstractModel.dll
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\bin\Debug\MyAirport.Data.AbstractModel.pdb
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\bin\Debug\MyAirport.Entities.dll
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\bin\Debug\MyAirport.Entities.pdb
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.csprojResolveAssemblyReference.cache
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.dll
+C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.AbstractModel\obj\Debug\MyAirport.Data.AbstractModel.pdb

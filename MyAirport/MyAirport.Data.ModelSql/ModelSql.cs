@@ -63,7 +63,7 @@ namespace MyAirport.Data
             throw new NotImplementedException();
         }
 
-        public override BagageDefinition GetBagageWithIata(string iata)
+        public override List<BagageDefinition> GetBagageWithIata(string iata)
         {
             throw new NotImplementedException();
         }

@@ -10,6 +10,7 @@ namespace MyAirport.Service
     [ServiceContract]
     public interface IMyAirportService
     {
+        /*
         #region Tests
 
         [FaultContract(typeof(PersoFaultException))]
@@ -45,10 +46,10 @@ namespace MyAirport.Service
         [OperationContract]
         VolDefinition DetailVol2(int id);
 
-        #endregion
+        #endregion */
 
         #region Bagages
-
+       /*
         [OperationContract]
         List<BagageDefinition> RechercherBagagesDuVol(int idVol);
 
@@ -59,9 +60,10 @@ namespace MyAirport.Service
         List<BagageDefinition> RechercherBagagesDuJour();
 
         [OperationContract]
-        BagageDefinition DetailBagage(int id);
+        BagageDefinition DetailBagage(int id);  */
 
         [OperationContract]
+        [FaultContract(typeof(MultipleBaggageException))]
         BagageDefinition RechercherBagagesParIata(string iata);
 
         [OperationContract]

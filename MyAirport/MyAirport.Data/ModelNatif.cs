@@ -367,7 +367,7 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             return bagages.FirstOrDefault(b => b.Id == idBagage);
         }
 
-        public override BagageDefinition GetBagageWithIata(string iata)
+        public override List<BagageDefinition> GetBagageWithIata(string iata)
         {
             throw new NotImplementedException();
         }

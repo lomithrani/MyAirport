@@ -36,24 +36,12 @@ namespace MyAirport.Data.ModelEntityFramework
             return valueToReturn;
         }
 
-        public override BagageDefinition GetBagageWithIata(string iata)
+        public override List<BagageDefinition> GetBagageWithIata(string iata)
         {
-            BagageDefinition valueToReturn;
             using (var db = new MyAirportEntities())
             {
-                BAGAGE baggage = null;
-                try
-                {
-                    baggage = db.BAGAGEs.Single(b => b.CODE_IATA == iata);
-                }
-                catch (Exception)
-                {
-                    //to do throw exception
-                }
-
-                valueToReturn = Mapper.Map<BagageDefinition>(baggage);
+                return db.BAGAGEs.Where(b => b.CODE_IATA == iata).Select(Mapper.Map<BagageDefinition>).ToList();
             }
-            return valueToReturn;
         }
 
 
@@ -68,7 +56,7 @@ namespace MyAirport.Data.ModelEntityFramework
             using (var db = new MyAirportEntities())
             {
                 var baggageDal = Mapper.Map<BAGAGE>(baggage);
-                VOL vol=null;
+                VOL vol = null;
                 try
                 {
                     vol = db.VOLs.Single(v => v.ID_VOL == baggageDal.ID_VOL);
@@ -80,7 +68,7 @@ namespace MyAirport.Data.ModelEntityFramework
                         Message = "Vol introuvable"
                     });
                 }
-              
+
                 baggageDal.COMPAGNIE = vol?.COMPAGNIE1.CODE_IATA;
                 baggageDal.LIGNE = vol?.LIG;
                 baggageDal.ORIGINE_CREATION = "D";
@@ -99,7 +87,6 @@ namespace MyAirport.Data.ModelEntityFramework
                     {
                         Message = "Sauvegarde Impossible"
                     });
-
                 }
             }
             return returnValue;

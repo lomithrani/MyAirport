@@ -46,6 +46,7 @@
     <Compile Include="BagageCriteres.cs" />
     <Compile Include="Historique.cs" />
     <Compile Include="IMyAirportService.cs" />
+    <Compile Include="MultipleBaggageException.cs" />
     <Compile Include="Parametres.cs" />
     <Compile Include="PersoFaultException.cs" />
     <Compile Include="VolCriteres.cs" />

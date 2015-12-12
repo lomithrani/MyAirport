@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Permissions;
 using System.ServiceModel;
 using System.Threading;
@@ -22,12 +23,13 @@ namespace MyAirport.Service
             NbInstance++;
         }
 
+        /*
         public int TestFaultException(int v1, int v2)
         {
             var res = 0;
             try
             {
-                res = v1 / v2;
+                res = v1/v2;
             }
             catch (DivideByZeroException)
             {
@@ -109,12 +111,28 @@ namespace MyAirport.Service
         {
             NbAppel++;
             return ModelsFactory.Model.GetBagage(id);
-        }
+        } */
 
         public BagageDefinition RechercherBagagesParIata(string iata)
         {
             NbAppel++;
-            return ModelsFactory.Model.GetBagageWithIata(iata);
+
+            var baggages = ModelsFactory.Model.GetBagageWithIata(iata);
+
+            if (baggages.Count == 1)
+            {
+                return baggages.First();
+            }
+            if (baggages.Count > 1)
+            {
+                throw new FaultException<MultipleBaggageException>(new MultipleBaggageException
+                {
+                    Message = baggages.Count + " baggages returned",
+                    Baggages = baggages
+                });
+            }
+
+            return null;
         }
 
         public int CreerBaggage(BagageDefinition baggage)

@@ -61,6 +61,7 @@ namespace MyAirport.Entities
         BagageDefinition DetailBagage(int id);
 
         [OperationContract]
+        [FaultContract(typeof(MultipleBaggageException))]
         BagageDefinition RechercherBagagesParIata(string iata);
 
         #endregion

@@ -69,4 +69,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BagageDefinition" nillable="true" type="tns:BagageDefinition" />
+  <xs:complexType name="MultipleBaggageException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MultipleBaggageException" nillable="true" type="tns:MultipleBaggageException" />
 </xs:schema>

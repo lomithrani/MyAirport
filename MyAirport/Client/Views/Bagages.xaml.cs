@@ -22,7 +22,18 @@ namespace Client.Views
         {
             var myAirportService = new MyAirportServiceClient();
 
-            var baggageDefinition = myAirportService.RechercherBagagesParIata(textBox.Text);
+
+            BagageDefinition baggageDefinition = null;
+
+            try
+            {
+                baggageDefinition = myAirportService.RechercherBagagesParIata(textBox.Text);
+            }
+            catch(FaultException<MultipleBaggageException> ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+                
 
             if (baggageDefinition != null)
             {
