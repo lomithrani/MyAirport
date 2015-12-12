@@ -24,6 +24,7 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new Bagages();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -34,3 +34,12 @@ C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data\bin\Debug\MyAirpo
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.ModelNatif.csprojResolveAssemblyReference.cache
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.dll
 C:\Users\Louis\Source\Repos\MyAirport\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.AbstractModel.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Entities.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Data.AbstractModel.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\bin\Debug\MyAirport.Entities.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.ModelNatif.csprojResolveAssemblyReference.cache
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data\obj\Debug\MyAirport.Data.pdb

@@ -34,3 +34,12 @@ C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.M
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.csprojResolveAssemblyReference.cache
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.dll
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Data.ModelSql.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Data.ModelSql.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Data.AbstractModel.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Entities.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Data.AbstractModel.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\bin\Debug\MyAirport.Entities.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.csprojResolveAssemblyReference.cache
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Data.ModelSql\obj\Debug\MyAirport.Data.ModelSql.pdb

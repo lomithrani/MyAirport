@@ -31,7 +31,14 @@ namespace Client.Views
             }
             catch(FaultException<MultipleBaggageException> ex)
             {
-                MessageBox.Show(ex.Message);
+                string content = ex.Detail.Message;
+                foreach(var baggage in ex.Detail.Baggages)
+                {
+                    content += "\n" + "Baggage Id: " + baggage.Id + " - Creation Date: " + baggage.DateCreation;
+                    if (baggage.IdVol != null)
+                        content += " - Id Vol: " + baggage.IdVol;
+                }               
+                MessageBox.Show(content);
             }
                 
 
@@ -40,15 +47,21 @@ namespace Client.Views
                 TextBoxDate.Text = baggageDefinition.DateCreation.ToString(CultureInfo.InvariantCulture);
                 TextBoxIdBaggage.Text = baggageDefinition.Id.ToString();
                 TextBoxIdVol.Text = baggageDefinition.IdVol.ToString();
-                var vol = myAirportService.DetailVol2(baggageDefinition.IdVol ?? default(int));
-                TextBoxLigne.Text = vol.Ligne;
-                TextBoxCompagnie.Text = vol.CIE;
+                if (baggageDefinition.IdVol != null)
+                {
+                    var vol = myAirportService.DetailVol2(baggageDefinition.IdVol ?? default(int));
+                    TextBoxLigne.Text = vol.Ligne;
+                    TextBoxCompagnie.Text = vol.CIE;
+                }
+                
+              
                 TextBoxCompagnie.IsEnabled = false;
                 TextBoxLigne.IsEnabled = false;
                 AddBaggageButton.Visibility = Visibility.Hidden;
             }
             else
             {
+                MessageBox.Show("No baggage found insert new baggage Id Vol");
                 TextBoxIdVol.IsEnabled = true;
                 AddBaggageButton.Visibility = Visibility.Visible;
             }
@@ -72,6 +85,7 @@ namespace Client.Views
             int.TryParse(TextBoxIdVol.Text, out idVol);
             baggage.IdVol = idVol;
 
+            baggage.Prioritary = Rush.IsChecked ?? false;
             try
             {
                 var id = myAirportService.CreerBaggage(baggage);
@@ -80,8 +94,8 @@ namespace Client.Views
                 TextBoxIdBaggage.Text = id.ToString();
             }
             catch (FaultException<PersoFaultException> fault)
-            {
-                MessageBox.Show(fault.Message);
+            {              
+                MessageBox.Show(fault.Detail.Message);
             }
         }
     }

@@ -15,298 +15,6 @@ namespace Client.ServiceReference2 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PersoFaultException", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
-    [System.SerializableAttribute()]
-    public partial class PersoFaultException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int V1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int V2Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int V1 {
-            get {
-                return this.V1Field;
-            }
-            set {
-                if ((this.V1Field.Equals(value) != true)) {
-                    this.V1Field = value;
-                    this.RaisePropertyChanged("V1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int V2 {
-            get {
-                return this.V2Field;
-            }
-            set {
-                if ((this.V2Field.Equals(value) != true)) {
-                    this.V2Field = value;
-                    this.RaisePropertyChanged("V2");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Parametres", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
-    [System.SerializableAttribute()]
-    public partial class Parametres : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime LastConnectField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Param1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Param2Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UserNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime LastConnect {
-            get {
-                return this.LastConnectField;
-            }
-            set {
-                if ((this.LastConnectField.Equals(value) != true)) {
-                    this.LastConnectField = value;
-                    this.RaisePropertyChanged("LastConnect");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Param1 {
-            get {
-                return this.Param1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Param1Field, value) != true)) {
-                    this.Param1Field = value;
-                    this.RaisePropertyChanged("Param1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Param2 {
-            get {
-                return this.Param2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Param2Field, value) != true)) {
-                    this.Param2Field = value;
-                    this.RaisePropertyChanged("Param2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Historique", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
-    [System.SerializableAttribute()]
-    public partial class Historique : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Client.ServiceReference2.VolCriteres RechercheField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Client.ServiceReference2.VolCriteres Recherche {
-            get {
-                return this.RechercheField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RechercheField, value) != true)) {
-                    this.RechercheField = value;
-                    this.RaisePropertyChanged("Recherche");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VolCriteres", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
-    [System.SerializableAttribute()]
-    public partial class VolCriteres : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] CompagniesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateDebutField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime dateFinField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] Compagnies {
-            get {
-                return this.CompagniesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompagniesField, value) != true)) {
-                    this.CompagniesField = value;
-                    this.RaisePropertyChanged("Compagnies");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime dateDebut {
-            get {
-                return this.dateDebutField;
-            }
-            set {
-                if ((this.dateDebutField.Equals(value) != true)) {
-                    this.dateDebutField = value;
-                    this.RaisePropertyChanged("dateDebut");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime dateFin {
-            get {
-                return this.dateFinField;
-            }
-            set {
-                if ((this.dateFinField.Equals(value) != true)) {
-                    this.dateFinField = value;
-                    this.RaisePropertyChanged("dateFin");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VolDefinition", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
     [System.SerializableAttribute()]
     public partial class VolDefinition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -435,6 +143,9 @@ namespace Client.ServiceReference2 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> IdVolField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PrioritaryField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -497,6 +208,19 @@ namespace Client.ServiceReference2 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Prioritary {
+            get {
+                return this.PrioritaryField;
+            }
+            set {
+                if ((this.PrioritaryField.Equals(value) != true)) {
+                    this.PrioritaryField = value;
+                    this.RaisePropertyChanged("Prioritary");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -517,6 +241,9 @@ namespace Client.ServiceReference2 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReference2.BagageDefinition[] BaggagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -526,6 +253,19 @@ namespace Client.ServiceReference2 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReference2.BagageDefinition[] Baggages {
+            get {
+                return this.BaggagesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BaggagesField, value) != true)) {
+                    this.BaggagesField = value;
+                    this.RaisePropertyChanged("Baggages");
+                }
             }
         }
         
@@ -552,88 +292,92 @@ namespace Client.ServiceReference2 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PersoFaultException", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
+    [System.SerializableAttribute()]
+    public partial class PersoFaultException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int V1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int V2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int V1 {
+            get {
+                return this.V1Field;
+            }
+            set {
+                if ((this.V1Field.Equals(value) != true)) {
+                    this.V1Field = value;
+                    this.RaisePropertyChanged("V1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int V2 {
+            get {
+                return this.V2Field;
+            }
+            set {
+                if ((this.V2Field.Equals(value) != true)) {
+                    this.V2Field = value;
+                    this.RaisePropertyChanged("V2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IMyAirportService")]
     public interface IMyAirportService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/TestFaultException", ReplyAction="http://tempuri.org/IMyAirportService/TestFaultExceptionResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(Client.ServiceReference2.PersoFaultException), Action="http://tempuri.org/IMyAirportService/TestFaultExceptionPersoFaultExceptionFault", Name="PersoFaultException", Namespace="http://schemas.datacontract.org/2004/07/MyAirport.Entities")]
-        int TestFaultException(int v1, int v2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/TestFaultException", ReplyAction="http://tempuri.org/IMyAirportService/TestFaultExceptionResponse")]
-        System.Threading.Tasks.Task<int> TestFaultExceptionAsync(int v1, int v2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/MesParamatres", ReplyAction="http://tempuri.org/IMyAirportService/MesParamatresResponse")]
-        Client.ServiceReference2.Parametres MesParamatres();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/MesParamatres", ReplyAction="http://tempuri.org/IMyAirportService/MesParamatresResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.Parametres> MesParamatresAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="TestAction")]
-        void UpdateMesParametres(Client.ServiceReference2.Parametres parameters);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="TestAction")]
-        System.Threading.Tasks.Task UpdateMesParametresAsync(Client.ServiceReference2.Parametres parameters);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/MonHistorique", ReplyAction="http://tempuri.org/IMyAirportService/MonHistoriqueResponse")]
-        Client.ServiceReference2.Historique[] MonHistorique();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/MonHistorique", ReplyAction="http://tempuri.org/IMyAirportService/MonHistoriqueResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.Historique[]> MonHistoriqueAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/CreateVol", ReplyAction="http://tempuri.org/IMyAirportService/CreateVolResponse")]
-        void CreateVol(Client.ServiceReference2.VolDefinition newVol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/CreateVol", ReplyAction="http://tempuri.org/IMyAirportService/CreateVolResponse")]
-        System.Threading.Tasks.Task CreateVolAsync(Client.ServiceReference2.VolDefinition newVol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnie", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnieResponse")]
-        Client.ServiceReference2.VolDefinition[] RechercherVolsDeLaCompagnie(string compagnie);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnie", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsDeLaCompagnieResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsDeLaCompagnieAsync(string compagnie);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsParDate", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsParDateResponse")]
-        Client.ServiceReference2.VolDefinition[] RechercherVolsParDate(System.DateTime debut, System.DateTime fin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsParDate", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsParDateResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsParDateAsync(System.DateTime debut, System.DateTime fin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsDuJour", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsDuJourResponse")]
-        Client.ServiceReference2.VolDefinition[] RechercherVolsDuJour();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherVolsDuJour", ReplyAction="http://tempuri.org/IMyAirportService/RechercherVolsDuJourResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsDuJourAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/DetailVol2", ReplyAction="http://tempuri.org/IMyAirportService/DetailVol2Response")]
         Client.ServiceReference2.VolDefinition DetailVol2(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/DetailVol2", ReplyAction="http://tempuri.org/IMyAirportService/DetailVol2Response")]
         System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition> DetailVol2Async(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuVol", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuVolResponse")]
-        Client.ServiceReference2.BagageDefinition[] RechercherBagagesDuVol(int idVol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuVol", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuVolResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesDuVolAsync(int idVol);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesParDate", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesParDateResponse")]
-        Client.ServiceReference2.BagageDefinition[] RechercherBagagesParDate(System.DateTime debut, System.DateTime fin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesParDate", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesParDateResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesParDateAsync(System.DateTime debut, System.DateTime fin);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuJour", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuJourResponse")]
-        Client.ServiceReference2.BagageDefinition[] RechercherBagagesDuJour();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesDuJour", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesDuJourResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesDuJourAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/DetailBagage", ReplyAction="http://tempuri.org/IMyAirportService/DetailBagageResponse")]
-        Client.ServiceReference2.BagageDefinition DetailBagage(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/DetailBagage", ReplyAction="http://tempuri.org/IMyAirportService/DetailBagageResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition> DetailBagageAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIata", ReplyAction="http://tempuri.org/IMyAirportService/RechercherBagagesParIataResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Client.ServiceReference2.MultipleBaggageException), Action="http://tempuri.org/IMyAirportService/RechercherBagagesParIataMultipleBaggageExcep" +
@@ -678,108 +422,12 @@ namespace Client.ServiceReference2 {
                 base(binding, remoteAddress) {
         }
         
-        public int TestFaultException(int v1, int v2) {
-            return base.Channel.TestFaultException(v1, v2);
-        }
-        
-        public System.Threading.Tasks.Task<int> TestFaultExceptionAsync(int v1, int v2) {
-            return base.Channel.TestFaultExceptionAsync(v1, v2);
-        }
-        
-        public Client.ServiceReference2.Parametres MesParamatres() {
-            return base.Channel.MesParamatres();
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.Parametres> MesParamatresAsync() {
-            return base.Channel.MesParamatresAsync();
-        }
-        
-        public void UpdateMesParametres(Client.ServiceReference2.Parametres parameters) {
-            base.Channel.UpdateMesParametres(parameters);
-        }
-        
-        public System.Threading.Tasks.Task UpdateMesParametresAsync(Client.ServiceReference2.Parametres parameters) {
-            return base.Channel.UpdateMesParametresAsync(parameters);
-        }
-        
-        public Client.ServiceReference2.Historique[] MonHistorique() {
-            return base.Channel.MonHistorique();
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.Historique[]> MonHistoriqueAsync() {
-            return base.Channel.MonHistoriqueAsync();
-        }
-        
-        public void CreateVol(Client.ServiceReference2.VolDefinition newVol) {
-            base.Channel.CreateVol(newVol);
-        }
-        
-        public System.Threading.Tasks.Task CreateVolAsync(Client.ServiceReference2.VolDefinition newVol) {
-            return base.Channel.CreateVolAsync(newVol);
-        }
-        
-        public Client.ServiceReference2.VolDefinition[] RechercherVolsDeLaCompagnie(string compagnie) {
-            return base.Channel.RechercherVolsDeLaCompagnie(compagnie);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsDeLaCompagnieAsync(string compagnie) {
-            return base.Channel.RechercherVolsDeLaCompagnieAsync(compagnie);
-        }
-        
-        public Client.ServiceReference2.VolDefinition[] RechercherVolsParDate(System.DateTime debut, System.DateTime fin) {
-            return base.Channel.RechercherVolsParDate(debut, fin);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsParDateAsync(System.DateTime debut, System.DateTime fin) {
-            return base.Channel.RechercherVolsParDateAsync(debut, fin);
-        }
-        
-        public Client.ServiceReference2.VolDefinition[] RechercherVolsDuJour() {
-            return base.Channel.RechercherVolsDuJour();
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition[]> RechercherVolsDuJourAsync() {
-            return base.Channel.RechercherVolsDuJourAsync();
-        }
-        
         public Client.ServiceReference2.VolDefinition DetailVol2(int id) {
             return base.Channel.DetailVol2(id);
         }
         
         public System.Threading.Tasks.Task<Client.ServiceReference2.VolDefinition> DetailVol2Async(int id) {
             return base.Channel.DetailVol2Async(id);
-        }
-        
-        public Client.ServiceReference2.BagageDefinition[] RechercherBagagesDuVol(int idVol) {
-            return base.Channel.RechercherBagagesDuVol(idVol);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesDuVolAsync(int idVol) {
-            return base.Channel.RechercherBagagesDuVolAsync(idVol);
-        }
-        
-        public Client.ServiceReference2.BagageDefinition[] RechercherBagagesParDate(System.DateTime debut, System.DateTime fin) {
-            return base.Channel.RechercherBagagesParDate(debut, fin);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesParDateAsync(System.DateTime debut, System.DateTime fin) {
-            return base.Channel.RechercherBagagesParDateAsync(debut, fin);
-        }
-        
-        public Client.ServiceReference2.BagageDefinition[] RechercherBagagesDuJour() {
-            return base.Channel.RechercherBagagesDuJour();
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition[]> RechercherBagagesDuJourAsync() {
-            return base.Channel.RechercherBagagesDuJourAsync();
-        }
-        
-        public Client.ServiceReference2.BagageDefinition DetailBagage(int id) {
-            return base.Channel.DetailBagage(id);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference2.BagageDefinition> DetailBagageAsync(int id) {
-            return base.Channel.DetailBagageAsync(id);
         }
         
         public Client.ServiceReference2.BagageDefinition RechercherBagagesParIata(string iata) {

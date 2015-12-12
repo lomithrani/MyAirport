@@ -36,14 +36,17 @@ namespace MyAirport.Data.ModelEntityFramework
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(source => source.ID_BAGAGE))
                 .ForMember(dest => dest.CodeIATA, opt => opt.ResolveUsing<IataResolver>())
                 .ForMember(dest => dest.DateCreation, opt => opt.MapFrom(source => source.DATE_CREATION))
-                .ForMember(dest => dest.IdVol, opt => opt.MapFrom(source => source.VOL.ID_VOL));
+                .ForMember(dest => dest.IdVol, opt => opt.MapFrom(source => source.VOL.ID_VOL))
+                .ForMember(dest => dest.Prioritary, opt => opt.MapFrom(source => source.PRIORITAIRE));
 
 
             Mapper.CreateMap<BagageDefinition, BAGAGE>()
                 .ForMember(dest => dest.ID_BAGAGE, opt => opt.MapFrom(source => source.Id))
                 .ForMember(dest => dest.CODE_IATA, opt => opt.MapFrom(source => source.CodeIATA.ToString()))
-                .ForMember(source => source.DATE_CREATION, opt => opt.MapFrom(source => source.DateCreation))
-                .ForMember(dest => dest.ID_VOL, opt => opt.MapFrom(source => source.IdVol));
+                .ForMember(dest => dest.DATE_CREATION, opt => opt.MapFrom(source => source.DateCreation))
+                .ForMember(dest => dest.ID_VOL, opt => opt.MapFrom(source => source.IdVol))
+                .ForMember(dest => dest.PRIORITAIRE, opt => opt.MapFrom(source => source.Prioritary));
+              
 
         }
 

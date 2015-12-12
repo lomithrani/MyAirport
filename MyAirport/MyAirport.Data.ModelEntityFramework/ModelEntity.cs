@@ -45,11 +45,7 @@ namespace MyAirport.Data.ModelEntityFramework
         }
 
 
-        public override List<BagageDefinition> GetBagages(BagageCriteres criteres)
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public override int SetBaggage(BagageDefinition baggage)
         {
             var returnValue = -1;
@@ -93,9 +89,5 @@ namespace MyAirport.Data.ModelEntityFramework
         }
 
 
-        public override List<VolDefinition> GetVols(VolCriteres criteres)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -17,3 +17,7 @@ C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Entiti
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb
 C:\Users\Louis\Documents\GitHubVisualStudio\MyAirport\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.csprojResolveAssemblyReference.cache
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Entities\bin\Debug\MyAirport.Entities.pdb
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.dll
+E:\document\cours\ING5\NET\MyAirport\MyAirport.Entities\obj\Debug\MyAirport.Entities.pdb

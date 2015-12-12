@@ -18,11 +18,9 @@ namespace MyAirport.Data
         /// <param name="idVol">Identifiant unique du vol</param>
         /// <returns>VolDefinition correspondant à l'identifiant fournit en paramètre</returns>
         public abstract VolDefinition GetVol(int idVol);
-        public abstract List<VolDefinition> GetVols(VolCriteres criteres);
 
         public abstract BagageDefinition GetBagage(int idBagage);
         public abstract List<BagageDefinition> GetBagageWithIata(string iata);
-        public abstract List<BagageDefinition> GetBagages(BagageCriteres criteres);
         public abstract int SetBaggage(BagageDefinition baggage);
         
     }

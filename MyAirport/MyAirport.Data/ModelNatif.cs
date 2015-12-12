@@ -333,32 +333,6 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             return vols.FirstOrDefault(v => v.Id == idVol);
         }
 
-        public override List<VolDefinition> GetVols(VolCriteres criteres)
-        {
-            return vols.Where(v => ValideCritere(v, criteres)).ToList();
-        }
-
-        private bool ValideCritere(VolDefinition vol, VolCriteres criteres)
-        {
-            if (criteres.dateDebut == DateTime.MinValue) criteres.dateDebut = DateTime.Now.Date;
-            if (criteres.dateFin == DateTime.MinValue) criteres.dateFin = DateTime.Now.Date.AddDays(1);
-
-            if (criteres.Compagnies == null)
-            {
-                if (vol.Date >= criteres.dateDebut & vol.Date <= criteres.dateFin)
-                    return true;
-                else
-                    return false;
-            }
-            else if (criteres.Compagnies.Contains(vol.CIE))
-            {
-                if (vol.Date >= criteres.dateDebut & vol.Date <= criteres.dateFin)
-                    return true;
-                else
-                    return false;
-            }
-            return false;
-        }
         #endregion
 
         #region Bagages
@@ -372,29 +346,10 @@ new VolDefinition{Id=1, CIE="US", Date=new DateTime(2014,07,18, 06,30,00), Ligne
             throw new NotImplementedException();
         }
 
-        public override List<BagageDefinition> GetBagages(BagageCriteres criteres)
-        {
-            return bagages.Where(b => ValideCritere(b, criteres)).ToList();
-        }
 
         public override int SetBaggage(BagageDefinition baggage)
         {
             throw new NotImplementedException();
-        }
-
-        private bool ValideCritere(BagageDefinition bag, BagageCriteres criteres)
-        {
-            if (criteres.DateDebut == DateTime.MinValue) criteres.DateDebut = DateTime.Now.Date;
-            if (criteres.DateFin == DateTime.MinValue) criteres.DateFin = DateTime.Now.Date.AddDays(1);
-
-            if (criteres.Compagnies == null)
-            {
-                if (bag.DateCreation >= criteres.DateDebut & bag.DateCreation <= criteres.DateFin)
-                    return true;
-                else
-                    return false;
-            }
-            return false;
         }
         #endregion
 

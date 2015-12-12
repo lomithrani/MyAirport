@@ -17,14 +17,14 @@ namespace HostMyAirport
             host = new ServiceHost(type);
             label2.Text = host.State.ToString();
 
-            linkLabel1.Text = host.BaseAddresses[0].ToString();
+            linkLabel1.Text = host.BaseAddresses[0]?.ToString();
             listBox1.Items.Add(linkLabel1.Text = host.BaseAddresses[0].ToString());
             host.Closed += host_StateChanged;
             host.Closing += host_StateChanged;
             host.Faulted += host_StateChanged;
             host.Opening += host_StateChanged;
             host.Opened += host_StateChanged;
-//            host.UnknownMessageReceived += host_UnknownMessageReceived;
+            //host.UnknownMessageReceived += host_UnknownMessageReceived;
         }
 
         private void host_UnknownMessageReceived(object sender, UnknownMessageReceivedEventArgs e)

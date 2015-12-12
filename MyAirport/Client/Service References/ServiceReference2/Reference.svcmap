@@ -26,7 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="07f669fc-60e3-460e-9a19-0c5f0d482064" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4b8ffe1d-9b5b-48d5-9c94-3b8ee959cbfe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/mex" />
     <MetadataFile FileName="MyAirport.Entities.xsd" MetadataType="Schema" ID="fc13dad8-3c96-413f-9a53-d6d8a415e0ce" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="1ff63cda-23fd-40f8-ab4e-a8f22a7ea0f0" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8520a71f-d36d-49b7-8f71-6cc38cda1a92" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MyAirport.Service/MyAirportService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

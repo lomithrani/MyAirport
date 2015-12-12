@@ -53,10 +53,6 @@ namespace MyAirport.Data
             return vol;
         }
 
-        public override List<Entities.VolDefinition> GetVols(Entities.VolCriteres criteres)
-        {
-            throw new NotImplementedException();
-        }
 
         public override Entities.BagageDefinition GetBagage(int idBagage)
         {
@@ -68,10 +64,6 @@ namespace MyAirport.Data
             throw new NotImplementedException();
         }
 
-        public override List<Entities.BagageDefinition> GetBagages(Entities.BagageCriteres criteres)
-        {
-            throw new NotImplementedException();
-        }
 
         public override int SetBaggage(BagageDefinition baggage)
         {

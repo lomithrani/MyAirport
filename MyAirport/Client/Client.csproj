@@ -64,9 +64,6 @@
     <Compile Include="Views\Bagages.xaml.cs">
       <DependentUpon>Bagages.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Vols.xaml.cs">
-      <DependentUpon>Vols.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,10 +77,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Bagages.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Vols.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -115,12 +108,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference2\Client.ServiceReference2.BagageDefinition.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference2\Client.ServiceReference2.Historique.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference2\Client.ServiceReference2.Parametres.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceReference2\Client.ServiceReference2.VolDefinition.datasource">

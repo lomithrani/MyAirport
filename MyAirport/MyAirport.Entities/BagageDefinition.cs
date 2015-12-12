@@ -15,5 +15,7 @@ namespace MyAirport.Entities
         public long CodeIATA;
         [DataMember]
         public DateTime DateCreation;
+        [DataMember]
+        public bool Prioritary;
     }
 }

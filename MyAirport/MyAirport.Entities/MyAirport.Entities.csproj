@@ -43,13 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BagageDefinition.cs" />
-    <Compile Include="BagageCriteres.cs" />
-    <Compile Include="Historique.cs" />
     <Compile Include="IMyAirportService.cs" />
     <Compile Include="MultipleBaggageException.cs" />
-    <Compile Include="Parametres.cs" />
     <Compile Include="PersoFaultException.cs" />
-    <Compile Include="VolCriteres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VolDefinition.cs" />
   </ItemGroup>

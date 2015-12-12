@@ -11,15 +11,15 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-<WrapPanel>
-        <GroupBox x:Name="GroupRecherche" Header="Recherche" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="446">
-            <WrapPanel HorizontalAlignment="Stretch" Height="33" Margin="0,10,-2,0" VerticalAlignment="Stretch">
-                <Label x:Name="Label" Content="CodeIata:" VerticalAlignment="Stretch" Width="73" />
-                <TextBox x:Name="textBox" Height="28" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch"
+        <WrapPanel>
+            <GroupBox x:Name="GroupRecherche" Header="Recherche" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="446">
+                <WrapPanel HorizontalAlignment="Stretch" Height="33" Margin="0,10,-2,0" VerticalAlignment="Stretch">
+                    <Label x:Name="Label" Content="CodeIata:" VerticalAlignment="Stretch" Width="73" />
+                    <TextBox x:Name="textBox" Height="28" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Stretch"
                          Width="145" />
-                <Button x:Name="SearchButton" Content="Search" VerticalAlignment="Stretch" Click="buttonSearch_Click" />
-            </WrapPanel>
-        </GroupBox>
+                    <Button x:Name="SearchButton" Content="Search" VerticalAlignment="Stretch" Click="buttonSearch_Click" />
+                </WrapPanel>
+            </GroupBox>
             <GroupBox Header="Resultats"  VerticalAlignment="Bottom" >
                 <WrapPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <GroupBox x:Name="BoxVol" Header="Vol" Height="199" Width="177">
@@ -40,7 +40,7 @@
 
 
                     </GroupBox>
-                    <GroupBox x:Name="BoxBagage" Header="Baggage" Height="195" Width="258">
+                    <GroupBox x:Name="BoxBagage" Header="Baggage" Height="199" Width="258">
                         <WrapPanel>
                             <DockPanel>
                                 <Label Content="Id" />
@@ -54,6 +54,7 @@
                                 <Label Content="Vol Id" />
                                 <TextBox x:Name="TextBoxIdVol" HorizontalAlignment="Left" Width="238" IsEnabled="False"/>
                             </DockPanel>
+                            <CheckBox x:Name="Rush" Content="Rush" Width="249" />
                             <Button x:Name="AddBaggageButton" Content="Add" Width="75" HorizontalAlignment="Center" Click="button_Click" />
                         </WrapPanel>
                     </GroupBox>
