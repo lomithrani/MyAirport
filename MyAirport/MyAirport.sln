@@ -26,6 +26,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostMyAirport", "HostMyAirp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirport.Data.ModelEntityFramework", "MyAirport.Data.ModelEntityFramework\MyAirport.Data.ModelEntityFramework.csproj", "{BBF0AFA0-7CE0-497E-BC53-6C9961C5C86C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2C5957A-CAD8-47B0-8A24-B5C0A5B12FB3}"
+	ProjectSection(SolutionItems) = preProject
+		..\Archive.rar = ..\Archive.rar
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
