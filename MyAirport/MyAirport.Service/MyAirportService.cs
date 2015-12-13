@@ -23,20 +23,8 @@ namespace MyAirport.Service
 
         public VolDefinition DetailVol2(int id)
         {
-            VolDefinition res = null;
-            if (Thread.CurrentPrincipal.IsInRole("CEB-CDG1"))
-            {
-                res = ModelsFactory.Model.GetVol(id);
-            }
-            else
-            {
-                res = ModelsFactory.Model.GetVol(id);
-                res.CIE = null;
-            }
-            var user = Thread.CurrentPrincipal.Identity.Name;
-            NbAppel++;
-            //            return MyAirport.Factory.ModelsFactory.Model.GetVol(id);
-            return res;
+            return ModelsFactory.Model.GetVol(id);
+           
         }
 
         public BagageDefinition RechercherBagagesParIata(string iata)
